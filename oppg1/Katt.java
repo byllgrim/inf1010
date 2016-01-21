@@ -8,11 +8,11 @@ public class Katt {
 	public void jakt(Bol<Mus> musebol, Bol<Rotte> rottebol) {
 		System.out.printf("%s ", navn);
 
-		if (!musebol.erTomt()) {
+		if (!musebol.erTomt() && !musebol.hentDyr().erDod()) {
 			String navn = rottebol.hentDyr().hentNavn();
 			System.out.printf("angriper %s.\n", navn);
 			musebol.hentDyr().bliAngrepet();
-		} else if(!rottebol.erTomt()) {
+		} else if(!rottebol.erTomt() && !rottebol.hentDyr().erDod()) {
 			String navn = rottebol.hentDyr().hentNavn();
 			System.out.printf("angriper %s.\n", navn);
 			rottebol.hentDyr().bliAngrepet();
