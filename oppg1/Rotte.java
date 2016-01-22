@@ -1,7 +1,6 @@
 public class Rotte extends Gnager {
 	public Rotte(String navn) {
-		this.navn = navn;
-		tilstand = Tilstand.LEVENDE;
+		super(navn);
 	}
 
 	public void bliAngrepet() {
