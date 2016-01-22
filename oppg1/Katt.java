@@ -9,7 +9,7 @@ public class Katt {
 		System.out.printf("%s ", navn);
 
 		if (!musebol.erTomt() && !musebol.hentDyr().erDod()) {
-			String navn = rottebol.hentDyr().hentNavn();
+			String navn = musebol.hentDyr().hentNavn();
 			System.out.printf("angriper %s.\n", navn);
 			musebol.hentDyr().bliAngrepet();
 		} else if(!rottebol.erTomt() && !rottebol.hentDyr().erDod()) {
