@@ -7,7 +7,7 @@ Hva er konvensjonen for navngivelse av grensesnitt?
 Dette virker som vranglaere, av samme grunn som vi ikke bruker "int myVar".
 
 # Hvor lang tid (ca) brukte du på innleveringen?
-15m + 1h + ...
+15m + 1h + 1h + 1.5h +  ...
 
 # Samarbeidet du med noen under innleveringen?
 Nei.

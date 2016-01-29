@@ -13,8 +13,9 @@ public interface GenHylle<T> {
 	 * Sett inn element paa index, hvis des er ledig.
 	 * @param e element som settes inn.
 	 * @param i index det skal settes inn i.
+	 * @return true if successful, false ellers.
 	 */
-	public void settInn(T e, int i);
+	public boolean settInn(T e, int i);
 
 	/**
 	 * Ser om plass i hylla er ledig.
