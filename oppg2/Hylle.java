@@ -12,7 +12,7 @@ public class Hylle<T> implements GenHylle<T> {
 	}
 
 	public boolean settInn(T e, int i) {
-		if (i < storrelse() && erLedig(i)) { /* rekkefolge viktig */
+		if (plassFinnes(i) && erLedig(i)) { /* rekkefolge viktig */
 			plasser[i] = e;
 			bruktePlasser++;
 			return true;
@@ -22,7 +22,7 @@ public class Hylle<T> implements GenHylle<T> {
 	}
 
 	public boolean erLedig(int i) {
-		if (plasser[i] == null) {
+		if (plassFinnes(i) && plasser[i] == null) {
 			return true;
 		} else {
 			return false;
@@ -30,7 +30,7 @@ public class Hylle<T> implements GenHylle<T> {
 	}
 
 	public T taUt(int i) {
-		if (plasser[i] != null) {
+		if (plassFinnes(i) && plasser[i] != null) {
 			T tmp = plasser[i];
 			plasser[i] = null;
 			bruktePlasser--;
@@ -42,5 +42,15 @@ public class Hylle<T> implements GenHylle<T> {
 
 	public int hentBruktePlasser() {
 		return bruktePlasser;
+	}
+
+	private boolean plassFinnes(int i) {
+		if (i < 0) {
+			return false;
+		} else if (i > storrelse()) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 }
