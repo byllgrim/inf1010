@@ -1,3 +1,10 @@
 public class Bil {
-	protected string RegNum;
+	protected String regNum;
+
+	public Bil (String regNum) {
+		this.regNum = regNum;
+	}
+
+	public void printInfo() {
+	}
 }
