@@ -6,5 +6,6 @@ public class Bil {
 	}
 
 	public void printInfo() {
+		System.out.println(regNum);
 	}
 }

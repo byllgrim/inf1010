@@ -2,4 +2,4 @@ all:
 	javac *.java
 
 run: all
-	@java Main
+	@java Main biler.dat

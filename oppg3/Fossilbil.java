@@ -5,4 +5,8 @@ public class Fossilbil extends Bil {
 		super(regNum);
 		this.utslipp = utslipp;
 	}
+
+	public void printInfo() {
+		System.out.printf("FOSSIL %s %f\n", regNum, utslipp);
+	}
 }

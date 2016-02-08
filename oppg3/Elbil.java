@@ -5,4 +5,8 @@ public class Elbil extends Bil {
 		super(regNum);
 		this.kapasitet = kapasitet;
 	}
+
+	public void printInfo() {
+		System.out.printf("EL %s %d\n", regNum, kapasitet);
+	}
 }

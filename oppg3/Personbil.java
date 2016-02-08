@@ -5,4 +5,9 @@ public class Personbil extends Fossilbil {
 		super(regNum, utslipp);
 		this.seter = seter;
 	}
+
+	public void printInfo() {
+		System.out.printf("PERSONFOSSILBIL %s %f %d\n",
+		                   regNum, utslipp, seter);
+	}
 }

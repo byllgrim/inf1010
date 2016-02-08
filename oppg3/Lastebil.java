@@ -5,4 +5,9 @@ public class Lastebil extends Fossilbil {
 		super(regNum, utslipp);
 		this.nyttevekt = nyttevekt;
 	}
+
+	public void printInfo() {
+		System.out.printf("LASTEBIL %s %f %f\n",
+		                   regNum, utslipp, nyttevekt);
+	}
 }
