@@ -21,9 +21,9 @@ public class BilManager {
 		}
 	}
 
-	public void printFossil() {
+	public void printPersonbil() {
 		for (Bil b : biler) {
-			if (b instanceof Fossilbil) {
+			if (b instanceof Personbil) {
 				b.printInfo();
 			}
 		}

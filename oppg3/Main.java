@@ -7,6 +7,6 @@ public class Main {
 
 		BilManager manager = new BilManager();
 		manager.lesFraFil(args[0]);
-		manager.printFossil();
+		manager.printPersonbil();
 	}
 }
