@@ -1,3 +1,7 @@
 public class ReseptHvit extends Resept{
-	//TODO: ikke subsidiert
+	public ReseptHvit(Legemiddel legemiddel, String lege,
+	                  String pasient, int reit)
+	{
+		super(legemiddel, lege, pasient, reit);
+	}
 }

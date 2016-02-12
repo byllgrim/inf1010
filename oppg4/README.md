@@ -1,3 +1,23 @@
+# Hvordan synes du innleveringen var? Hva var enkelt og hva var vanskelig?
+Det er beskrevet i slutten av denne filen.
+
+
+
+# Hvor lang tid (ca) brukte du på innleveringen?
+
+
+
+# Samarbeidet du med noen under innleveringen?
+Jeg har diskutert klassehierarkiet med flere folk.
+
+
+
+# Var det noen oppgaver du ikke fikk til?
+Alle oppgavene var krevende.
+Denne innleveringen var veldig uoversiktlig for meg.
+
+
+
 # Tvetydighet
 Det er ikke klart, blandt legemiddler, type a, b og c
 og format (pille eller mikstur) hva som skal være interface.

@@ -1,11 +1,19 @@
 public class Resept {
-	protected static int teller = 0; //TODO: vurder private
+	protected static long teller = 0; //TODO: vurder private
 
-	//private Legemiddel legemiddel; TODO: uncomment når Legemiddel fins
+	protected Legemiddel legemiddel;
 	protected String lege;
 	protected String pasient;
 	protected int reit;
-	protected int referansenummer; //TODO: unikt!
+	protected long referansenummer; //TODO: unikt!
 
-	//TODO: Lag metoder
+	public Resept(Legemiddel legemiddel, String lege,
+	              String pasient, int reit)
+	{
+		this.legemiddel = legemiddel;
+		this.lege = lege;
+		this.pasient = pasient;
+		this.reit = reit;
+		referansenummer = teller++;
+	}
 }

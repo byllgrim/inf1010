@@ -1,3 +1,8 @@
 public class ReseptBlaa extends Resept{
-	//TODO: sterkt subsidiert
+	public ReseptBlaa(Legemiddel legemiddel, String lege,
+	                  String pasient, int reit)
+	{
+		super(legemiddel, lege, pasient, reit);
+		this.legemiddel.settPris(0);
+	}
 }
