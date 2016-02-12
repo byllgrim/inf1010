@@ -1,3 +1,3 @@
 public class Lege implements Lik {
-	private String navn; //TODO: unikt!
+	protected String navn; //TODO: unikt!
 }

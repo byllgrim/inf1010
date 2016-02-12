@@ -16,6 +16,10 @@ eller "alle disse egenskaper som er beskrevet hittill"?
 Er dette en egenskap ved resepter (f.eks. enum),
 eller subklasser av resept?
 
+"Noen leger har avtaler med kommunen (fastleger)"
+Samme spørsmål oppstår her.
+Er det i det hele tatt et konsekvent svar på begge disse spørsmålene?
+
 
 
 # Dårlig navngivelse
@@ -23,3 +27,8 @@ Legen er et Lik. Zombie doctor?
 
 samme() er et lite deskriptivt navn.
 Det er ikke intuitivt hva denne funksjonen gjør.
+
+
+
+# Mangler klarhet
+Heter det TypeA eller heter det Narkotisk?
