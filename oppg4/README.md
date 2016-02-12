@@ -32,3 +32,9 @@ Det er ikke intuitivt hva denne funksjonen gjør.
 
 # Mangler klarhet
 Heter det TypeA eller heter det Narkotisk?
+
+
+
+# Duplikasjon
+"Et legemiddel har et unikt nummer."
+"Når legemidler registreres får de et unikt nummer."
