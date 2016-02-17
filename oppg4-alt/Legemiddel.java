@@ -47,4 +47,8 @@ abstract public class Legemiddel implements Piller, Mikstur{
 	public double hentVirkestoffPerPille() {
 		return virkestoffPerPille;
 	}
+
+	public void settPris(double pris) {
+		this.pris = pris;
+	}
 }
