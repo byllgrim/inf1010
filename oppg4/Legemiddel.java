@@ -1,10 +1,10 @@
-public class Legemiddel {
+abstract public class Legemiddel {
 	protected static long teller = 0; //TODO: vurder private
 
 	protected String preparatnavn;
 	protected double pris;
 	protected double totalVirkestoffImg;
-	protected long referansenummer; //TODO: unikt!
+	protected long referansenummer;
 
 	public Legemiddel(String navn, double pris, double virkestoff) {
 		preparatnavn = navn;
