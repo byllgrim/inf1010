@@ -26,11 +26,11 @@ public class LenkeListeTest {
 	private static void testErTom() {
 		LenkeListe<String> l = new LenkeListe<>();
 
-		if (!l.erTom())
+		if (!l.tom())
 			System.err.println("error: testErTom: ikketom");
 
 		l.leggTil("A");
-		if (l.erTom())
+		if (l.tom())
 			System.err.println("error: testErTom: tom");
 	}
 

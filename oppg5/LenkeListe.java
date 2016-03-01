@@ -7,8 +7,7 @@ public class LenkeListe<E extends Comparable<E>> {
 		Node forrige = null;
 	}
 
-	//Jeg nekter aa kalle den tom()
-	public boolean erTom() {
+	public boolean tom() {
 		return foersteNode == null;
 	}
 
@@ -42,12 +41,8 @@ public class LenkeListe<E extends Comparable<E>> {
 	}
 
 	private Node minsteNode(Node n1, Node n2) {
-		if (n2 == null)
-			return null;
-
 		E d1 = n1.data;
 		E d2 = n2.data;
-		Node minst = (d1.compareTo(d2) <= 0) ? n1 : n2;
 		return (d1.compareTo(d2) <= 0) ? n1 : n2;
 	}
 
