@@ -3,9 +3,8 @@ package oppg6;
 import oppg4.Lik;
 
 public class SortertEnkelListe<T extends Comparable<T> & Lik>
+                               extends LenkelisteIterator<T>
                                implements AbstraktSortertEnkelListe<T> {
-	Node<T> hode = new Node<T>();
-	Node<T> current;
 
 	@SuppressWarnings("unchecked")
 	public void settInn(T element, String nokkel) {
@@ -95,23 +94,5 @@ public class SortertEnkelListe<T extends Comparable<T> & Lik>
 		}
 
 		return null;
-	}
-
-	public boolean hasNext() {
-		if (erTom())
-			return false;
-
-		return (current != null);
-	}
-
-	@SuppressWarnings("unchecked")
-	public T next() {
-		if (hasNext()) {
-			T r = current.data;
-			current = current.neste;
-			return r;
-		} else {
-			return null;
-		}
 	}
 }
