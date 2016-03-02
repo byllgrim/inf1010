@@ -1,5 +1,5 @@
 all:
-	javac *.java
+	javac -cp ../oppg6 *.java
 
 clean:
 	rm *.class

@@ -6,6 +6,7 @@ public class Pasient {
 	protected String adresse;
 	protected String postnummer;
 	protected long pasientnummer;
+	protected YngsteForstReseptListe resepter;
 
 	public Pasient(String navn, String foedselsnummer,
 	               String adresse, String postnummer)
@@ -15,6 +16,7 @@ public class Pasient {
 		this.adresse = adresse;
 		this.postnummer = settPostnummer(postnummer);
 		pasientnummer = teller++;
+		// TODO: resepter
 	}
 
 	private String settPostnummer(String num) {
