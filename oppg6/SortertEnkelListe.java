@@ -5,8 +5,9 @@ import oppg4.Lik;
 public class SortertEnkelListe<T extends Comparable<T> & Lik>
                                implements AbstraktSortertEnkelListe<T> {
 	Node<T> hode = new Node<T>();
-	Node<T> current = hode;
+	Node<T> current;
 
+	@SuppressWarnings("unchecked")
 	public void settInn(T element, String nokkel) {
 		if (erTom()) {
 			settInnFremst(element, nokkel);
@@ -19,6 +20,7 @@ public class SortertEnkelListe<T extends Comparable<T> & Lik>
 				settInnForranNode(element, nokkel, n);
 				return;
 			}
+			n = n.neste;
 		}
 
 		settInnBakerst(element, nokkel);
@@ -32,7 +34,7 @@ public class SortertEnkelListe<T extends Comparable<T> & Lik>
 		Node<T> n = new Node<T>();
 		n.data = element;
 		n.nokkel = nokkel;
-		hode = n;
+		hode = current = n;
 	}
 
 	private void settInnForranNode(T element, String nokkel, Node<T> n) {
@@ -45,6 +47,7 @@ public class SortertEnkelListe<T extends Comparable<T> & Lik>
 		foran.neste = ny;
 	}
 
+	@SuppressWarnings("unchecked")
 	private Node<T> finnNodeForan(Node<T> bak) {
 		Node<T> n = hode;
 
@@ -54,11 +57,14 @@ public class SortertEnkelListe<T extends Comparable<T> & Lik>
 		while (n != null) {
 			if (n.neste == bak)
 				return n;
+
+			n = n.neste;
 		}
 
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
 	private void settInnBakerst(T element, String nokkel) {
 		Node<T> n = hode;
 		Node<T> ny = new Node<T>();
@@ -71,29 +77,41 @@ public class SortertEnkelListe<T extends Comparable<T> & Lik>
 		while (n != null) {
 			if (n.neste == null) {
 				n.neste = ny;
+				return;
 			}
+			n = n.neste;
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public T hentElement(String nokkel) {
 		Node<T> n = hode;
 
 		while (n != null) {
 			if (n.nokkel.compareTo(nokkel) == 0)
 				return n.data;
+
+			n = n.neste;
 		}
 
 		return null;
 	}
 
 	public boolean hasNext() {
-		return (current == null);
+		if (erTom())
+			return false;
+
+		return (current != null);
 	}
 
+	@SuppressWarnings("unchecked")
 	public T next() {
-		if (hasNext())
-			return current.data;
-		else
+		if (hasNext()) {
+			T r = current.data;
+			current = current.neste;
+			return r;
+		} else {
 			return null;
+		}
 	}
 }

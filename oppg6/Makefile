@@ -1,8 +1,8 @@
 all:
-	@javac -cp .. *.java
+	@javac -cp .. -Xlint:unchecked *.java
 
 less:
-	@javac -cp .. *.java 2>&1 | less
+	@javac -cp .. -Xlint:unchecked *.java 2>&1 | less
 
 clean:
 	@rm *.class
