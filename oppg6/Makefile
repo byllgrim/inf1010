@@ -6,3 +6,6 @@ less:
 
 clean:
 	@rm *.class
+
+test: all
+	@java TestOppg6

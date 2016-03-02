@@ -8,7 +8,7 @@ public class Tabell<E> implements AbstraktTabell<E> {
 	}
 
 	public boolean settInn(E element, int index) {
-		if (elementer[index] != null) {
+		if (elementer[index] == null) {
 			elementer[index] = element;
 			return true;
 		} else {
@@ -21,13 +21,14 @@ public class Tabell<E> implements AbstraktTabell<E> {
 	}
 
 	public boolean hasNext() {
-		if (currentIndex == elementer.length)
-			return false;
+		while (currentIndex < elementer.length) {
+			if (elementer[currentIndex] != null)
+				return true;
 
-		if (elementer[currentIndex] != null)
-			return true;
-		else
-			return false;
+			currentIndex++;
+		}
+
+		return false;
 	}
 
 	public E next() {
