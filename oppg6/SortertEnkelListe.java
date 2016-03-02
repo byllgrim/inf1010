@@ -1,3 +1,7 @@
+package oppg6;
+
+import oppg4.Lik;
+
 public class SortertEnkelListe<T extends Comparable<T> & Lik>
                                implements AbstraktSortertEnkelListe<T> {
 	Node<T> hode = new Node<T>();

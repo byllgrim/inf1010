@@ -1,3 +1,5 @@
+package oppg4;
+
 public class TypeBPiller extends TypeB implements Piller {
 	private int antall;
 	private double virkestoffPerPille;

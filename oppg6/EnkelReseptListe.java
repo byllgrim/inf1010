@@ -1,4 +1,7 @@
+package oppg6;
+
 import java.util.Iterator;
+import oppg4.Resept;
 
 public abstract class EnkelReseptListe implements Iterator<Resept> {
 	Node<Resept> hode = new Node<Resept>();
@@ -26,7 +29,7 @@ public abstract class EnkelReseptListe implements Iterator<Resept> {
 		Node<Resept> n = hode;
 
 		while (n != null) {
-			if (n.data.nummer == nr)
+			if (n.data.hentNummer() == nr)
 				return n.data;
 		}
 

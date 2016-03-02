@@ -1,11 +1,11 @@
 all:
-	@javac -cp ../oppg4 *.java
+	@javac -cp .. *.java
 
 less:
-	@javac -cp ../oppg4 *.java 2>&1 | less
+	@javac -cp .. *.java 2>&1 | less
 
 clean:
 	@rm *.class
 
 test: all
-	@java TestOppg6
+	@java -cp .. oppg6.TestOppg6

@@ -1,3 +1,5 @@
+package oppg4;
+
 public class Pasient {
 	protected static long teller = 0; //TODO: vurder private
 

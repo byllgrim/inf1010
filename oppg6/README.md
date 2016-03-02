@@ -1,3 +1,7 @@
+TODO!
+=====
+Masse strings er sammenlignet med compareTo() istedenfor equals(), fiks det.
+
 Complaints
 ==========
 Vi definerer grensesnitt med prefiksen 'Abstract'.

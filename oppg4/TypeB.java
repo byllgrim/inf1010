@@ -1,3 +1,5 @@
+package oppg4;
+
 abstract public class TypeB extends Legemiddel {
 	protected int vanedannelse;
 

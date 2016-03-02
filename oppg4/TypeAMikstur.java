@@ -1,3 +1,5 @@
+package oppg4;
+
 public class TypeAMikstur extends TypeA implements Mikstur {
 	private double volumICm3;
 	private double virkestoffPerCm3;

@@ -1,3 +1,5 @@
+package oppg6;
+
 import java.util.Iterator;
 
 public interface AbstraktTabell<E> extends Iterator<E>{

@@ -1,3 +1,5 @@
+package oppg6;
+
 // TODO: Vurder Tabell med noe annet enn String
 
 public class TestTabell {

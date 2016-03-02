@@ -1,3 +1,5 @@
+package oppg4;
+
 public class TypeCPiller extends Legemiddel implements Piller {
 	private int antall;
 	private double virkestoffPerPille;

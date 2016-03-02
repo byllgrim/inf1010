@@ -1,3 +1,5 @@
+package oppg6;
+
 import java.util.Iterator;
 
 public abstract class ListeIterator<E> implements Iterator<E> {

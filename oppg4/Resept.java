@@ -1,3 +1,5 @@
+package oppg4;
+
 public class Resept {
 	protected static long teller = 0; //TODO: vurder private
 
@@ -15,5 +17,9 @@ public class Resept {
 		this.pasient = pasient;
 		this.reit = reit;
 		nummer = teller++;
+	}
+
+	public long hentNummer() {
+		return nummer;
 	}
 }

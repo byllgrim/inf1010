@@ -1,3 +1,5 @@
+package oppg6;
+
 public class Tabell<E> implements AbstraktTabell<E> {
 	private E[] elementer;
 	private int currentIndex = 0;

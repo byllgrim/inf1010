@@ -1,3 +1,5 @@
+package oppg4;
+
 public class TypeBMikstur extends TypeB implements Mikstur {
 	private double volumICm3;
 	private double virkestoffPerCm3;

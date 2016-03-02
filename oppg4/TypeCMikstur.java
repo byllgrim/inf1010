@@ -1,3 +1,5 @@
+package oppg4;
+
 public class TypeCMikstur extends Legemiddel implements Mikstur {
 	private double volumICm3;
 	private double virkestoffPerCm3;

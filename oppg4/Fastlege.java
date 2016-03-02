@@ -1,3 +1,5 @@
+package oppg4;
+
 public class Fastlege extends Lege implements HarKommuneAvtale {
 	private int avtalenummer;
 

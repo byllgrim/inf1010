@@ -1,3 +1,5 @@
+package oppg4;
+
 abstract public class Legemiddel {
 	protected static long teller = 0; //TODO: vurder private
 

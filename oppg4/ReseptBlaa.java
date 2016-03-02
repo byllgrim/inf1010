@@ -1,3 +1,5 @@
+package oppg4;
+
 public class ReseptBlaa extends Resept{
 	public ReseptBlaa(Legemiddel legemiddel, String lege,
 	                  String pasient, int reit)
