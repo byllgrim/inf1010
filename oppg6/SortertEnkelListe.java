@@ -1,38 +1,40 @@
-/*
- * TODO: see AbstraktSortertEnkelListe.java
- */
-
 public class SortertEnkelListe<T extends Comparable<T> & Lik>
                                implements AbstraktSortertEnkelListe<T> {
-	Node<T> hode;
-	Node<T> current;
+	Node<T> hode = new Node<T>();
+	Node<T> current = hode;
 
-	public void settInn(T element) {
-		if (hode == null) {
-			settInnFremst(element);
+	public void settInn(T element, String nokkel) {
+		if (erTom()) {
+			settInnFremst(element, nokkel);
 			return;
 		}
 
 		Node<T> n = hode;
 		while (n != null) {
 			if (element.compareTo(n.data) <= 0) {
-				settInnForran(element, n);
+				settInnForranNode(element, nokkel, n);
 				return;
 			}
 		}
 
-		settInnBakerst(element);
+		settInnBakerst(element, nokkel);
 	}
 
-	private void settInnFremst(T element) {
+	public boolean erTom() {
+		return (hode.data == null);
+	}
+
+	private void settInnFremst(T element, String nokkel) {
 		Node<T> n = new Node<T>();
 		n.data = element;
+		n.nokkel = nokkel;
 		hode = n;
 	}
 
-	private void settInnForran(T element, Node<T> n) {
+	private void settInnForranNode(T element, String nokkel, Node<T> n) {
 		Node<T> ny = new Node<T>();
 		ny.data = element;
+		n.nokkel = nokkel;
 		ny.neste = n;
 
 		Node<T> foran = finnNodeForan(n);
@@ -45,7 +47,7 @@ public class SortertEnkelListe<T extends Comparable<T> & Lik>
 		if (bak == hode)
 			return null;
 
-		while (n != n) {
+		while (n != null) {
 			if (n.neste == bak)
 				return n;
 		}
@@ -53,13 +55,14 @@ public class SortertEnkelListe<T extends Comparable<T> & Lik>
 		return null;
 	}
 
-	private void settInnBakerst(T element) {
+	private void settInnBakerst(T element, String nokkel) {
 		Node<T> n = hode;
 		Node<T> ny = new Node<T>();
 		ny.data = element;
+		ny.nokkel = nokkel;
 
-		if (n == null)
-			settInnFremst(element);
+		if (erTom())
+			settInnFremst(element, nokkel);
 
 		while (n != null) {
 			if (n.neste == null) {
@@ -69,17 +72,24 @@ public class SortertEnkelListe<T extends Comparable<T> & Lik>
 	}
 
 	public T hentElement(String nokkel) {
-		// TODO
+		Node<T> n = hode;
+
+		while (n != null) {
+			if (n.nokkel.compareTo(nokkel) == 0)
+				return n.data;
+		}
+
 		return null;
 	}
 
 	public boolean hasNext() {
-		// TODO
-		return false;
+		return (current == null);
 	}
 
 	public T next() {
-		// TODO
-		return null;
+		if (hasNext())
+			return current.data;
+		else
+			return null;
 	}
 }

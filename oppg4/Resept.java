@@ -5,7 +5,7 @@ public class Resept {
 	protected String lege;
 	protected String pasient;
 	protected int reit;
-	protected long referansenummer; //TODO: unikt!
+	protected long nummer; //TODO: unikt!
 
 	public Resept(Legemiddel legemiddel, String lege,
 	              String pasient, int reit)
@@ -14,6 +14,6 @@ public class Resept {
 		this.lege = lege;
 		this.pasient = pasient;
 		this.reit = reit;
-		referansenummer = teller++;
+		nummer = teller++;
 	}
 }

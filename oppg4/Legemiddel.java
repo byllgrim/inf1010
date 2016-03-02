@@ -4,13 +4,13 @@ abstract public class Legemiddel {
 	protected String preparatnavn;
 	protected double pris;
 	protected double totalVirkestoffImg;
-	protected long referansenummer;
+	protected long nummer;
 
 	public Legemiddel(String navn, double pris, double virkestoff) {
 		preparatnavn = navn;
 		this.pris = pris;
 		totalVirkestoffImg = virkestoff;
-		referansenummer = teller++;
+		nummer = teller++;
 	}
 
 	public void settPris(double pris) {
