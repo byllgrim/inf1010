@@ -5,6 +5,10 @@ Se Makefile
 Testing skal ikke gi noe output hvis alt gaar bra.
 Hvis den henger har noe galt skjedd.
 
+Hvor lang tid tok det?
+======================
+Veldig lang tid. Sikkert noen dager til sammen.
+
 TODO
 ====
 Masse strings er sammenlignet med compareTo() istedenfor equals(), fiks det.
