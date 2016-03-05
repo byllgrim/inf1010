@@ -1,6 +1,8 @@
 package oppg6;
 
-public abstract class LenkelisteIterator<T> {
+import java.util.Iterator;
+
+public abstract class LenkelisteIterator<T> implements Iterator<T> {
 	Node<T> hode = new Node<T>();
 	Node<T> current;
 	boolean firstIteration = true;

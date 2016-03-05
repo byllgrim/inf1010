@@ -1,10 +1,8 @@
 package oppg6;
 
-import java.util.Iterator;
 import oppg4.Resept;
 
-public abstract class EnkelReseptListe extends LenkelisteIterator<Resept>
-                                       implements Iterator<Resept> {
+public abstract class EnkelReseptListe extends LenkelisteIterator<Resept> {
 	protected Node<Resept> hale = hode;
 
 	public void settInn(Resept resept) {
