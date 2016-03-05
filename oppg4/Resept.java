@@ -22,4 +22,12 @@ public class Resept {
 	public long hentNummer() {
 		return nummer;
 	}
+
+	public String hentLege() {
+		return lege;
+	}
+
+	public String hentPasient() {
+		return pasient;
+	}
 }

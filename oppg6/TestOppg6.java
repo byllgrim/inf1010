@@ -4,8 +4,11 @@ public class TestOppg6 {
 	public static void main(String[] args) {
 		TestTabell.kjorTester();
 		TestSortertEnkelListe.kjorTester();
-		TestEnkelReseptListe.kjorTester();
-		TestEldsteForstReseptListe.kjorTester(); // TODO
+		TestEldsteForstReseptListe.kjorTester();
+		/*
+		 * NB! kjoer Eldste foer Yngste pga Resept counter.
+		 * Alternativt: Ha egen main i hver enhetstest.
+		 */
 		TestYngsteForstReseptListe.kjorTester(); // TODO
 	}
 }

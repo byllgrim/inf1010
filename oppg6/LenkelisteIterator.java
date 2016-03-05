@@ -3,6 +3,7 @@ package oppg6;
 public abstract class LenkelisteIterator<T> {
 	Node<T> hode = new Node<T>();
 	Node<T> current;
+	boolean firstIteration = true;
 
 	public boolean erTom() {
 		return (hode.data == null);
@@ -11,6 +12,11 @@ public abstract class LenkelisteIterator<T> {
 	public boolean hasNext() {
 		if (erTom())
 			return false;
+
+		if (firstIteration) {
+			firstIteration = false;
+			current = hode;
+		}
 
 		return (current != null);
 	}

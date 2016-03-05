@@ -1,5 +1,7 @@
 package oppg4;
 
+import oppg6.YngsteForstReseptListe;
+
 public class Pasient {
 	protected static long teller = 0; //TODO: vurder private
 

@@ -1,5 +1,8 @@
 package oppg6;
 
 public class YngsteForstReseptListe extends EnkelReseptListe {
-	// TODO: iterator
+	/*
+	 * Denne trenger ikke modifikasjon fordi EnkelReseptListe
+	 * allerede er en stack?
+	 */
 }
