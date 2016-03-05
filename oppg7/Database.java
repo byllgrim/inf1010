@@ -16,4 +16,15 @@ public class Database {
 		leger = new SortertEnkelListe();
 		pasienter = new Tabell<Pasient>(100);
 	}
+
+	public void lesFil(String filnavn) {
+		System.out.println("TODO les '" + filnavn + "'");
+	}
+
+	public void leggTilLegemiddel(String navn, String typeform,
+	                              double pris, double mengde,
+	                              double virkestoff, int styrke)
+	{
+		System.out.println("TODO legg til legemiddel");
+	}
 }

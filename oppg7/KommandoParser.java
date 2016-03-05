@@ -31,6 +31,57 @@ public class KommandoParser {
 
 	private void utfoerKommando(char cmd) {
 		switch (cmd) {
+		case 'r':
+			lesFil();
+			break;
+		case 'w':
+			System.out.println("skriv fil");
+			break;
+		case 'p':
+			System.out.println("list pasienter");
+			break;
+		case 'l':
+			System.out.println("list leger");
+			break;
+		case 'm':
+			System.out.println("list legemidler");
+			break;
+		case 's':
+			System.out.println("list resepter");
+			break;
+		case 'x':
+			leggTilLegemiddel();
+			break;
+		case 'y':
+			System.out.println("legg til lege");
+			break;
+		case 'z':
+			System.out.println("legg til pasient");
+			break;
+		case 'u':
+			System.out.println("legg til resept");
+			break;
+		case 'a':
+			System.out.println("hent legemiddel til resept");
+			break;
+		case 'b':
+			System.out.println("antall vanedannende");
+			break;
+		case 'c':
+			System.out.println("pasients blaa");
+			break;
+		case 'd':
+			System.out.println("leges miksturer");
+			break;
+		case 'e':
+			System.out.println("leges totale virkestoff");
+			break;
+		case 'f':
+			System.out.println("antall narkotiske per lege");
+			break;
+		case 'g':
+			System.out.println("gyldige narkotiske per pasient");
+			break;
 		case 'h':
 			printKommandoer();
 			break;
@@ -40,6 +91,17 @@ public class KommandoParser {
 		default:
 			System.out.println("Skriv h for hjelp");
 		}
+	}
+
+	private void lesFil() {
+		System.out.printf("Filnavn: ");
+		String filnavn = stdin.next();
+		database.lesFil(filnavn);
+	}
+
+	private void leggTilLegemiddel() {
+		//nr, navn, form, type, pris, antll/mengde, virkstoff [, styrke]
+		//TODO
 	}
 
 	private void printKommandoer() {
