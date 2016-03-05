@@ -1,5 +1,6 @@
 package oppg4;
 
+// TODO: consider abstract
 public class Resept {
 	protected static long teller = 0; //TODO: vurder private
 

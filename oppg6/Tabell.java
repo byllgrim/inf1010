@@ -10,6 +10,8 @@ public class Tabell<E> implements AbstraktTabell<E> {
 	}
 
 	public boolean settInn(E element, int index) {
+		// TODO: hva med out of bounds?
+		// TODO: Array fullt
 		if (elementer[index] == null) {
 			elementer[index] = element;
 			return true;
