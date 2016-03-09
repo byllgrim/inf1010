@@ -14,15 +14,28 @@ public class SortertEnkelListe<T extends Comparable<T> & Lik>
 		}
 
 		Node<T> n = hode;
+		if (element.compareTo(n.data)<=0) {
+			settInnFremst(element, nokkel);
+			return;
+		}
+
+		if (n.neste == null) {
+			settInnEtterNode(element, nokkel, n);
+			return;
+		}
+
+		n = hode.neste;
+		Node<T> nprev = hode;
 		while (n != null) {
 			if (element.compareTo(n.data) <= 0) {
-				settInnForranNode(element, nokkel, n);
+				settInnEtterNode(element, nokkel, nprev);
 				return;
 			}
+			nprev = n;
 			n = n.neste;
 		}
 
-		settInnBakerst(element, nokkel);
+		settInnEtterNode(element, nokkel, nprev);
 	}
 
 	public boolean erTom() {
@@ -63,23 +76,12 @@ public class SortertEnkelListe<T extends Comparable<T> & Lik>
 		return null;
 	}
 
-	@SuppressWarnings("unchecked")
-	private void settInnBakerst(T element, String nokkel) {
-		Node<T> n = hode;
+	private void settInnEtterNode(T element, String nokkel, Node<T> n) {
 		Node<T> ny = new Node<T>();
 		ny.data = element;
 		ny.nokkel = nokkel;
-
-		if (erTom())
-			settInnFremst(element, nokkel);
-
-		while (n != null) {
-			if (n.neste == null) {
-				n.neste = ny;
-				return;
-			}
-			n = n.neste;
-		}
+		ny.neste = n.neste;
+		n.neste = ny;
 	}
 
 	@SuppressWarnings("unchecked")

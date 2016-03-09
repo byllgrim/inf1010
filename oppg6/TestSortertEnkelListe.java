@@ -87,13 +87,22 @@ public class TestSortertEnkelListe {
 			System.err.println("error: SortertEnkelListe: "
 				+ "next() skulle gi null");
 
-		liste.settInn(new Lege("Bjarnmoen"), "bjm");
-		liste.settInn(new Lege("Cholesterola"), "chl");
+		/*liste.settInn(new Lege("Bjarnmoen"), "bjm");
 		liste.settInn(new Lege("Farenwatt"), "frw");
+		liste.settInn(new Lege("Cholesterola"), "chl");
 
 		liste.next();
 		liste.next();
 		if (!liste.next().samme("Farenwatt"))
+			System.err.println("error: SortertEnkelListe: "
+				+ "next() skulle gi laveste element");*/
+		liste.settInn(new Lege("A"), "a");
+		liste.settInn(new Lege("C"), "c");
+		liste.settInn(new Lege("B"), "b");
+
+		liste.next();
+		liste.next();
+		if (!liste.next().samme("C"))
 			System.err.println("error: SortertEnkelListe: "
 				+ "next() skulle gi laveste element");
 	}

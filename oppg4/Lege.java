@@ -20,4 +20,8 @@ public class Lege implements Comparable<Lege>,Lik {
 		String n2 = other.navn;
 		return n1.compareTo(n2);
 	}
+
+	public String hentNavn() {
+		return navn;
+	}
 }
