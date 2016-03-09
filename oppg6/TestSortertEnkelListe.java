@@ -9,6 +9,7 @@ public class TestSortertEnkelListe {
 		testHentElement();
 		// testHasNext();
 		// testNext();
+		testForEach();
 	}
 
 	private static void testErTom() {
@@ -97,4 +98,17 @@ public class TestSortertEnkelListe {
 			System.err.println("error: SortertEnkelListe: "
 				+ "next() skulle gi laveste element");
 	} */
+
+	private static void testForEach() {
+		SortertEnkelListe<Lege> liste;
+		liste = new SortertEnkelListe<Lege>();
+
+		liste.settInn(new Lege("A"), "a");
+		liste.settInn(new Lege("C"), "c");
+		liste.settInn(new Lege("B"), "b");
+
+		for (Lege l : liste) {
+			l.hentNavn();
+		}
+	}
 }

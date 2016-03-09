@@ -7,6 +7,7 @@ public class TestTabell {
 		testSettInnOgHent();
 		// testHasNext();
 		// testNext();
+		testForEach();
 	}
 
 	private static void testSettInnOgHent() {
@@ -56,4 +57,20 @@ public class TestTabell {
 				+ "next() fant feil element");
 	}
 */
+
+	private static void testForEach() {
+		Tabell<String> t = new Tabell<String>(10);
+
+		String s1 = "Hey ho!";
+		String s2 = "stringedy";
+		String s3 = "Ett, to...";
+
+		t.settInn(s1, 0);
+		t.settInn(s2, 1);
+		t.settInn(s3, 2);
+
+		for (String s : t) {
+			t.hentElement(0);
+		}
+	}
 }

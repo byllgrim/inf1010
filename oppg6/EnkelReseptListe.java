@@ -3,7 +3,7 @@ package oppg6;
 import java.util.Iterator;
 import oppg4.Resept;
 
-public abstract class EnkelReseptListe implements Iterable {
+public abstract class EnkelReseptListe implements Iterable<Resept> {
 	protected Node<Resept> hode = new Node<Resept>();;
 	protected Node<Resept> hale = hode;
 
@@ -28,6 +28,7 @@ public abstract class EnkelReseptListe implements Iterable {
 	public Resept finnResept(long nr) throws Exception {
 		Node<Resept> n = hode;
 
+		// TODO: foreach loop
 		while (n != null) {
 			if (n.data.hentNummer() == nr)
 				return n.data;
