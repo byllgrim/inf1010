@@ -6,7 +6,7 @@ public class TestEldsteForstReseptListe {
 	public static void kjorTester() {
 		testFinnResept(); // NB! maa kjoeres foerst pga Resept counter
 		testErTom();
-		testNext();
+		// testNext();
 		// TODO
 	}
 
@@ -24,6 +24,7 @@ public class TestEldsteForstReseptListe {
 			                   + "skulle ikke være tom");
 	}
 
+	/*
 	private static void testNext() {
 		EldsteForstReseptListe liste = new EldsteForstReseptListe();
 
@@ -38,7 +39,7 @@ public class TestEldsteForstReseptListe {
 		if (!hentetLege.equals("lege1"))
 			System.err.println("error: EldsteForstReseptListe:"
 			                   + "skulle faa den eldste lege");
-	}
+	} */
 
 	private static void testFinnResept() {
 		EldsteForstReseptListe liste = new EldsteForstReseptListe();

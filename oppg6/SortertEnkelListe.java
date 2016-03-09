@@ -1,10 +1,12 @@
 package oppg6;
 
+import java.util.Iterator;
 import oppg4.Lik;
 
 public class SortertEnkelListe<T extends Comparable<T> & Lik>
-                               extends LenkelisteIterator<T>
-                               implements AbstraktSortertEnkelListe<T> {
+                               implements AbstraktSortertEnkelListe<T>
+{
+	Node<T> hode = new Node<T>();
 
 	@SuppressWarnings("unchecked")
 	public void settInn(T element, String nokkel) {
@@ -13,12 +15,14 @@ public class SortertEnkelListe<T extends Comparable<T> & Lik>
 			return;
 		}
 
+		//Sammenlign med forste node
 		Node<T> n = hode;
 		if (element.compareTo(n.data)<=0) {
 			settInnFremst(element, nokkel);
 			return;
 		}
 
+		//Er det kun en node?
 		if (n.neste == null) {
 			settInnEtterNode(element, nokkel, n);
 			return;
@@ -46,7 +50,7 @@ public class SortertEnkelListe<T extends Comparable<T> & Lik>
 		Node<T> n = new Node<T>();
 		n.data = element;
 		n.nokkel = nokkel;
-		hode = current = n;
+		hode = n;
 	}
 
 	private void settInnForranNode(T element, String nokkel, Node<T> n) {
@@ -96,5 +100,9 @@ public class SortertEnkelListe<T extends Comparable<T> & Lik>
 		}
 
 		return null;
+	}
+
+	public Iterator<T> iterator() {
+		return new LenkelisteIterator<T>(hode);
 	}
 }

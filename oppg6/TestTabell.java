@@ -5,8 +5,8 @@ package oppg6;
 public class TestTabell {
 	public static void kjorTester() {
 		testSettInnOgHent();
-		testHasNext();
-		testNext();
+		// testHasNext();
+		// testNext();
 	}
 
 	private static void testSettInnOgHent() {
@@ -29,6 +29,7 @@ public class TestTabell {
 				+ "hentElement gir feil element");
 	}
 
+/*
 	private static void testHasNext() {
 		Tabell<String> tabell = new Tabell<String>(20);
 
@@ -54,4 +55,5 @@ public class TestTabell {
 			System.err.println("error: Tabell: "
 				+ "next() fant feil element");
 	}
+*/
 }

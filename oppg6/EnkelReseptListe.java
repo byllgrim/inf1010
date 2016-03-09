@@ -1,8 +1,10 @@
 package oppg6;
 
+import java.util.Iterator;
 import oppg4.Resept;
 
-public abstract class EnkelReseptListe extends LenkelisteIterator<Resept> {
+public abstract class EnkelReseptListe implements Iterable {
+	protected Node<Resept> hode = new Node<Resept>();;
 	protected Node<Resept> hale = hode;
 
 	public void settInn(Resept resept) {
@@ -18,6 +20,10 @@ public abstract class EnkelReseptListe extends LenkelisteIterator<Resept> {
 		hode = ny;
 	}
 
+	public boolean erTom() {
+		return (hode.data == null);
+	}
+
 	@SuppressWarnings("unchecked")
 	public Resept finnResept(long nr) throws Exception {
 		Node<Resept> n = hode;
@@ -29,5 +35,9 @@ public abstract class EnkelReseptListe extends LenkelisteIterator<Resept> {
 		}
 
 		throw new Exception("Ikke-eksisterende Reseptnummer");
+	}
+
+	public Iterator<Resept> iterator() {
+		return new LenkelisteIterator<Resept>(hode);
 	}
 }

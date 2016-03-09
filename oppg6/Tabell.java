@@ -1,5 +1,7 @@
 package oppg6;
 
+import java.util.Iterator;
+
 public class Tabell<E> implements AbstraktTabell<E> {
 	private E[] elementer;
 	private int currentIndex = 0;
@@ -24,21 +26,7 @@ public class Tabell<E> implements AbstraktTabell<E> {
 		return elementer[index];
 	}
 
-	public boolean hasNext() {
-		while (currentIndex < elementer.length) {
-			if (elementer[currentIndex] != null)
-				return true;
-
-			currentIndex++;
-		}
-
-		return false;
-	}
-
-	public E next() {
-		if (!hasNext())
-			return null;
-
-		return elementer[currentIndex++];
+	public Iterator<E> iterator() {
+		return new TabellIterator<E>(elementer);
 	}
 }

@@ -7,8 +7,8 @@ public class TestSortertEnkelListe {
 		testErTom();
 		testSettInn();
 		testHentElement();
-		testHasNext();
-		testNext();
+		// testHasNext();
+		// testNext();
 	}
 
 	private static void testErTom() {
@@ -62,7 +62,7 @@ public class TestSortertEnkelListe {
 				+ "hentElement fant feil Lege");
 	}
 
-	private static void testHasNext() {
+	/* private static void testHasNext() {
 		SortertEnkelListe<Lege> liste;
 		liste = new SortertEnkelListe<>();
 
@@ -87,15 +87,6 @@ public class TestSortertEnkelListe {
 			System.err.println("error: SortertEnkelListe: "
 				+ "next() skulle gi null");
 
-		/*liste.settInn(new Lege("Bjarnmoen"), "bjm");
-		liste.settInn(new Lege("Farenwatt"), "frw");
-		liste.settInn(new Lege("Cholesterola"), "chl");
-
-		liste.next();
-		liste.next();
-		if (!liste.next().samme("Farenwatt"))
-			System.err.println("error: SortertEnkelListe: "
-				+ "next() skulle gi laveste element");*/
 		liste.settInn(new Lege("A"), "a");
 		liste.settInn(new Lege("C"), "c");
 		liste.settInn(new Lege("B"), "b");
@@ -105,5 +96,5 @@ public class TestSortertEnkelListe {
 		if (!liste.next().samme("C"))
 			System.err.println("error: SortertEnkelListe: "
 				+ "next() skulle gi laveste element");
-	}
+	} */
 }

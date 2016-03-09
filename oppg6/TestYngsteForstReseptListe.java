@@ -4,9 +4,10 @@ import oppg4.Resept;
 
 public class TestYngsteForstReseptListe {
 	public static void kjorTester() {
-		testNext();
+		//testNext();
 	}
 
+	/*
 	private static void testNext() {
 		YngsteForstReseptListe liste = new YngsteForstReseptListe();
 
@@ -21,5 +22,5 @@ public class TestYngsteForstReseptListe {
 		if (!hentetLege.equals("lege3"))
 			System.err.println("error: YngsteForstReseptListe:"
 			                   + "skulle faa den yngste lege");
-	}
+	} */
 }
