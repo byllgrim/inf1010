@@ -4,10 +4,10 @@ public class TypeAPiller extends TypeA implements Piller {
 	private int antall;
 	private double virkestoffPerPille;
 
-	public TypeAPiller(String navn, double pris, double virkestoff,
+	public TypeAPiller(String navn, double pris,
 	                   int narkosegrad, int antall,
 	                   double virkestoffPerPille) {
-		super(navn, pris, virkestoff, narkosegrad);
+		super(navn, pris, antall*virkestoffPerPille, narkosegrad);
 		this.antall = antall;
 		this.virkestoffPerPille = virkestoffPerPille;
 	}

@@ -4,10 +4,10 @@ public class TypeBPiller extends TypeB implements Piller {
 	private int antall;
 	private double virkestoffPerPille;
 
-	public TypeBPiller(String navn, double pris, double virkestoff,
+	public TypeBPiller(String navn, double pris,
 	                   int vanedannelse, int antall,
 	                   double virkestoffPerPille) {
-		super(navn, pris, virkestoff, vanedannelse);
+		super(navn, pris, antall*virkestoffPerPille, vanedannelse);
 		this.antall = antall;
 		this.virkestoffPerPille = virkestoffPerPille;
 	}

@@ -22,6 +22,16 @@ public class Tabell<E> implements AbstraktTabell<E> {
 		}
 	}
 
+	public boolean settInn(E element) {
+		for (int i = 0; i < elementer.length; i++) {
+			if (elementer[i] == null) {
+				elementer[i] = element;
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public E hentElement(int index) {
 		return elementer[index];
 	}

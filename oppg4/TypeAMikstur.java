@@ -4,10 +4,10 @@ public class TypeAMikstur extends TypeA implements Mikstur {
 	private double volumICm3;
 	private double virkestoffPerCm3;
 
-	public TypeAMikstur(String navn, double pris, double virkestoff,
+	public TypeAMikstur(String navn, double pris,
 	                    int narkosegrad, double volumICm3,
 	                    double virkestoffPerCm3) {
-		super(navn, pris, virkestoff, narkosegrad);
+		super(navn, pris, volumICm3*virkestoffPerCm3, narkosegrad);
 		this.volumICm3 = volumICm3;
 		this.virkestoffPerCm3 = virkestoffPerCm3;
 	}

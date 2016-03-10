@@ -5,7 +5,7 @@ abstract public class Legemiddel {
 
 	protected String preparatnavn;
 	protected double pris;
-	protected double totalVirkestoffImg;
+	protected double totalVirkestoffImg; //TODO: rename
 	protected long nummer;
 
 	public Legemiddel(String navn, double pris, double virkestoff) {

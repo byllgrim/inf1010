@@ -11,22 +11,16 @@ public class KommandoParser {
 	}
 
 	public void behandleNesteKommando() {
-		String input = hentNesteKommando();
-		if (input == null)
-			return;
+		String input = hentInput(">> ");
+		if (input.length() != 1)
+			input = "0";
 
-		char kommandoBokstav = input.charAt(0);
-		utfoerKommando(kommandoBokstav);
+		utfoerKommando(input.charAt(0));
 	}
 
-	private String hentNesteKommando() {
-		System.out.printf(">> ");
-		String input = stdin.next();
-
-		if (input.length() != 1)
-			return null;
-		else
-			return input;
+	private String hentInput(String prompt) {
+		System.out.printf(prompt);
+		return stdin.nextLine().toLowerCase();
 	}
 
 	private void utfoerKommando(char cmd) {
@@ -94,14 +88,24 @@ public class KommandoParser {
 	}
 
 	private void lesFil() {
-		System.out.printf("Filnavn: ");
-		String filnavn = stdin.next();
+		String filnavn = hentInput("Filnavn: ");
 		database.lesFil(filnavn);
 	}
 
 	private void leggTilLegemiddel() {
-		//nr, navn, form, type, pris, antll/mengde, virkstoff [, styrke]
-		//TODO
+		System.out.println("Irrelevant spørsmaal? Trykk enter.");
+
+		String navn = hentInput("Navn: ");
+		String nummer = hentInput("Nummer: ");
+		String form = hentInput("Pille/Mikstur: ");
+		String type = hentInput("A, B, C: ");
+		String pris = hentInput("Pris: ");
+		String mengde = hentInput("Mengde: ");
+		String stoff = hentInput("Virkestoff: ");
+		String styrke = hentInput("Styrke: ");
+
+		database.leggTilLegemiddel(navn, nummer, form, type, pris,
+		                           mengde, stoff, styrke);
 	}
 
 	private void printKommandoer() {
