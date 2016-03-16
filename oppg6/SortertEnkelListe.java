@@ -53,6 +53,7 @@ public class SortertEnkelListe<T extends Comparable<T> & Lik>
 		hode = n;
 	}
 
+	//TODO obsolete. remove
 	private void settInnForranNode(T element, String nokkel, Node<T> n) {
 		Node<T> ny = new Node<T>();
 		ny.data = element;
@@ -63,6 +64,7 @@ public class SortertEnkelListe<T extends Comparable<T> & Lik>
 		foran.neste = ny;
 	}
 
+	//TODO obsolete. remove
 	@SuppressWarnings("unchecked")
 	private Node<T> finnNodeForan(Node<T> bak) {
 		Node<T> n = hode;

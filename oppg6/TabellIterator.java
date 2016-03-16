@@ -11,6 +11,7 @@ public class TabellIterator<T> implements Iterator<T> {
 	}
 
 	public boolean hasNext() {
+		//TODO handter tomme plasser i arrayet
 		while (currentIndex < elementer.length) {
 			if (elementer[currentIndex] != null)
 				return true;
@@ -22,9 +23,10 @@ public class TabellIterator<T> implements Iterator<T> {
 	}
 
 	public T next() {
-		if (!hasNext())
-			return null;
+		if (!hasNext()) //TODO hasNext er scopet overs sitt ansvar
+			return null; //TODO exception
 
+		//TODO handter tomme plasser i arrayet
 		return elementer[currentIndex++];
 	}
 }

@@ -4,7 +4,7 @@ import java.util.Iterator;
 import oppg4.Resept;
 
 public abstract class EnkelReseptListe implements Iterable<Resept> {
-	protected Node<Resept> hode = new Node<Resept>();;
+	protected Node<Resept> hode = new Node<Resept>();
 	protected Node<Resept> hale = hode;
 
 	public void settInn(Resept resept) {
@@ -36,6 +36,7 @@ public abstract class EnkelReseptListe implements Iterable<Resept> {
 		}
 
 		throw new Exception("Ikke-eksisterende Reseptnummer");
+		//TODO Sende exception videre?
 	}
 
 	public Iterator<Resept> iterator() {

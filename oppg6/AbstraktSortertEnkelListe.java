@@ -1,5 +1,4 @@
 package oppg6;
-
 import java.util.Iterator;
 import oppg4.Lik;
 

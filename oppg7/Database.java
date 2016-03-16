@@ -48,7 +48,7 @@ public class Database {
 			l = new TypeAMikstur(navn, p, s, m, v);
 			break;
 		case A_PILLE:
-			l = new TypeAPille(navn, p, s, m, v); //int mengde
+			l = new TypeAPiller(navn, p, s, (int)m, v); //int mengde
 			break;
 		case B_MIKSTUR:
 			l = new TypeBMikstur(navn, p, s, m, v);

@@ -9,6 +9,7 @@ public class LenkelisteIterator<T> implements Iterator<T> {
 
 	public LenkelisteIterator(Node<T> hode) {
 		this.hode = this.current = hode;
+		//TODO trenger man hode?
 	}
 
 	public boolean erTom() {
@@ -19,6 +20,7 @@ public class LenkelisteIterator<T> implements Iterator<T> {
 		if (erTom())
 			return false;
 
+		//TODO generaliser funksjonen
 		if (firstIteration) {
 			firstIteration = false;
 			current = hode;
@@ -35,7 +37,7 @@ public class LenkelisteIterator<T> implements Iterator<T> {
 			return r;
 		} else {
 			return null;
+			//TODO throw NoSuchblalaba
 		}
 	}
-
 }

@@ -8,6 +8,7 @@ public class TestOppg6 {
 		/*
 		 * NB! kjoer Eldste foer Yngste pga Resept counter.
 		 * Alternativt: Ha egen main i hver enhetstest.
+		 * Alternativ2: Lag reseptene utenfor testene. gjenbruk
 		 */
 		TestYngsteForstReseptListe.kjorTester(); // TODO
 	}
