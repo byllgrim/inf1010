@@ -30,4 +30,9 @@ public class Pasient {
 			return null;
 		}
 	}
+
+	public String hentNavn() {
+		//TODO: Bruk toString()?
+		return navn;
+	}
 }

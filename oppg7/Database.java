@@ -6,6 +6,7 @@ import oppg4.*;
 
 public class Database {
 	private Tabell<Legemiddel> legemidler;
+	private int lmPos = 0; //TODO: Dette er ikke bra.
 	private SortertEnkelListe<Lege> leger;
 	private Tabell<Pasient> pasienter;
 
@@ -19,12 +20,11 @@ public class Database {
 		System.out.println("TODO les '" + filnavn + "'");
 	}
 
-	public void leggTilLegemiddel(String navn, String nummer,
+	public void leggTilLegemiddel(String navn,
 	                              String form, String type,
 	                              String pris, String mengde,
 	                              String virkestoff, String styrke)
 	{
-		System.out.println("TODO legg til legemiddel");
 		//Verdens lengste ja***a funksjon. Jeg har gitt opp.
 		double n, p, m ,v;
 		int s;
@@ -32,13 +32,13 @@ public class Database {
 
 		try {
 			tf = typeForm(type, form);
-			n = Double.parseDouble(nummer);
 			p = Double.parseDouble(pris);
 			m = Double.parseDouble(mengde);
 			v = Double.parseDouble(virkestoff);
 			s = Integer.parseInt(styrke);
 		} catch (Exception e) {
-			System.err.println("?");
+			System.err.println("error: Database.leggTilLegemiddel: "
+			                   + "conversion error.");
 			return;
 		}
 
@@ -48,22 +48,42 @@ public class Database {
 			l = new TypeAMikstur(navn, p, s, m, v);
 			break;
 		case A_PILLE:
-			l = new TypeAPiller(navn, p, s, (int)m, v); //int mengde
+			l = new TypeAPiller(navn, p, s, (int)m, v);
 			break;
 		case B_MIKSTUR:
 			l = new TypeBMikstur(navn, p, s, m, v);
 			break;
 		case B_PILLE:
+			l = new TypeBPiller(navn, p, s, (int)m, v);
 			break;
 		case C_MIKSTUR:
+			l = new TypeCMikstur(navn, p, m, v);
 			break;
 		case C_PILLE:
+			l = new TypeCPiller(navn, p, (int)m, v);
 			break;
 		default:
+			System.err.println("error: Database.leggTilLegemiddel: "
+			                   + "ukjent type/form");
+			//TODO: Exception?
 			return;
 		}
 
 		legemidler.settInn(l);
+	}
+
+	public void leggTilLege(String navn, String nokkel) {
+		Lege l = new Lege(navn);
+		leger.settInn(l, nokkel);
+		//TODO: Nokkel duplikat?
+	}
+
+	public void leggTilPasient(String navn, String fnr,
+	                           String adr, String postnr)
+	{
+		Pasient p = new Pasient(navn, fnr, adr, postnr);
+
+		pasienter.settInn(p);
 	}
 
 	private LegemiddelTypeForm typeForm(String type, String form)
@@ -91,5 +111,29 @@ public class Database {
 			}
 		}
 		throw new Exception();
+	}
+
+	public void listPasienter() {
+		//TODO: Mer informasjon?
+		//TODO: Bruk toString()?
+		for (Pasient p : pasienter) {
+			System.out.println(p.hentNavn());
+		}
+	}
+
+	public void listLeger() {
+		//TODO: Mer informasjon?
+		//TODO: Bruk toString()?
+		for (Lege l : leger) {
+			System.out.println(l.hentNavn());
+		}
+	}
+
+	public void listLegemidler() {
+		//TODO: List all informasjon?
+		//TODO: Bruk toString()?
+		for (Legemiddel l : legemidler) {
+			System.out.println(l.hentNavn());
+		}
 	}
 }

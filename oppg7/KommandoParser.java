@@ -32,13 +32,13 @@ public class KommandoParser {
 			System.out.println("skriv fil");
 			break;
 		case 'p':
-			System.out.println("list pasienter");
+			database.listPasienter();
 			break;
 		case 'l':
-			System.out.println("list leger");
+			database.listLeger();
 			break;
 		case 'm':
-			System.out.println("list legemidler");
+			database.listLegemidler();
 			break;
 		case 's':
 			System.out.println("list resepter");
@@ -47,10 +47,10 @@ public class KommandoParser {
 			leggTilLegemiddel();
 			break;
 		case 'y':
-			System.out.println("legg til lege");
+			leggTilLege();
 			break;
 		case 'z':
-			System.out.println("legg til pasient");
+			leggTilPasient();
 			break;
 		case 'u':
 			System.out.println("legg til resept");
@@ -93,10 +93,9 @@ public class KommandoParser {
 	}
 
 	private void leggTilLegemiddel() {
-		System.out.println("Irrelevant spørsmaal? Trykk enter.");
+		System.out.println("[Type C? Styrke skal være 0]");
 
 		String navn = hentInput("Navn: ");
-		String nummer = hentInput("Nummer: ");
 		String form = hentInput("Pille/Mikstur: ");
 		String type = hentInput("A, B, C: ");
 		String pris = hentInput("Pris: ");
@@ -104,8 +103,25 @@ public class KommandoParser {
 		String stoff = hentInput("Virkestoff: ");
 		String styrke = hentInput("Styrke: ");
 
-		database.leggTilLegemiddel(navn, nummer, form, type, pris,
+		database.leggTilLegemiddel(navn, form, type, pris,
 		                           mengde, stoff, styrke);
+	}
+
+	private void leggTilLege() {
+		//TODO: fastlege?
+		String navn = hentInput("Navn: ");
+		String nokkel = hentInput("Nokkel: ");
+
+		database.leggTilLege(navn, nokkel);
+	}
+
+	private void leggTilPasient() {
+		String navn = hentInput("Navn: ");
+		String fnr = hentInput("Foedselsnummer: ");
+		String adr = hentInput("Addresse: ");
+		String postnr = hentInput("Postnummer: ");
+
+		database.leggTilPasient(navn, fnr, adr, postnr);
 	}
 
 	private void printKommandoer() {

@@ -18,4 +18,8 @@ abstract public class Legemiddel {
 	public void settPris(double pris) {
 		this.pris = pris;
 	}
+
+	public String hentNavn() {
+		return preparatnavn;
+	}
 }
