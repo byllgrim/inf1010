@@ -8,67 +8,97 @@ import java.util.Scanner;
 public class Filleser {
 	private Database database;
 	private Scanner fs;
+	//TODO: could have enum for state. safety of lesXXX
 
 	public Filleser(Database database) {
 		this.database = database;
 	}
 
 	public boolean lesFil(String filnavn) {
-                System.out.println("Filleser lesFil(" + filnavn + ")");
-
 		try {
 			fs = new Scanner(new File(filnavn));
 		} catch (FileNotFoundException e) {
-			System.out.println("Fant ingen slik fil.");
+			System.err.println("Fant ingen slik fil.");
 			return false;
 		} catch (Exception e) {
 			//TODO: specific exception
-			e.printStackTrace();
 			return false;
 		}
 
-		lesPasienter();
-		lesLegemidler();
-		lesLeger();
-		lesResepter();
+		try {
+			lesPasienter();
+			lesLegemidler();
+			lesLeger();
+			lesResepter();
+		} catch (NoScannerException e) {
+			System.err.println("Scanner er uinitialisert");
+			return false;
+		} catch (Exception e) {
+			System.err.println("Kunne ikke lese fil.");
+			return false;
+		}
+
 		return true;
 	}
 
-	private void lesPasienter() {
+	private void lesPasienter() throws Exception {
 		String[] args = getArgs();
-		if (args == null)
-			return;
 
-		for (String s : args) System.out.println(s);
-		//database.leggTilPasient(args[0], args[1], args[2], args[3]);
+		for (; !args[0].equals(""); args = getArgs()) {
+			if (args[0].contains("#")) continue;
+			database.leggTilPasient(args[1], args[2],
+			                        args[3], args[4]);
+		}
 	}
 
-	private void lesLegemidler() {
-		if (noScanner()) return;
-		//TODO
+	private void lesLegemidler() throws Exception {
+		String[] args = getArgs();
+
+		for (; !args[0].equals(""); args = getArgs()) {
+			if (args[0].contains("#")) continue;
+			if (args.length < 8)
+				database.leggTilLegemiddel(args[1], args[2],
+				                           args[3], args[4],
+				                           args[5], args[6],
+				                           "0");
+			else
+				database.leggTilLegemiddel(args[1], args[2],
+				                           args[3], args[4],
+				                           args[5], args[6],
+			                                   args[7]);
+			//TODO: this is stupid
+		}
 	}
 
-	private void lesLeger() {
-		if (noScanner()) return;
-		//TODO
+	private void lesLeger() throws Exception {
+		String[] args = getArgs();
+
+		for (; !args[0].equals(""); args = getArgs()) {
+			if (args[0].contains("#")) continue;
+			String key = (args[0]+args[1]);
+			Integer ikey = new Integer(key.hashCode());
+			database.leggTilLege(args[0], ikey.toString());
+		}
 	}
 
-	private void lesResepter() {
-		if (noScanner()) return;
-		//TODO
+	private void lesResepter() throws Exception {
+		System.out.println("TODO: Les resepter");
 	}
 
 	private boolean noScanner() {
 		return (fs == null);
 	}
 
-	private String[] getArgs() {
-		if (noScanner())
-			return null;
+	private String[] getArgs() throws NoScannerException {
+		if (noScanner()) throw new NoScannerException("Ingen Scanner");
 
-		fs.nextLine(); //Fjern kommentaren
+		String line = fs.nextLine();
+		return line.split(", ");
+	}
+}
 
-		//TODO
-		return null;
+class NoScannerException extends IOException {
+	NoScannerException(String s) {
+		super(s);
 	}
 }
