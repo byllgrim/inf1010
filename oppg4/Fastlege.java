@@ -8,7 +8,7 @@ public class Fastlege extends Lege implements HarKommuneAvtale {
 		this.avtalenummer = avtalenummer;
 	}
 
-	public int HentAvtalenummer() {
+	public int hentAvtalenummer() {
 		return avtalenummer; 
 	}
 }

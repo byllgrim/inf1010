@@ -132,26 +132,24 @@ public class Database {
 	}
 
 	public void listPasienter() {
-		//TODO: Mer informasjon?
-		//TODO: Bruk toString()?
 		for (Pasient p : pasienter) {
-			System.out.println(p.hentNavn());
+			System.out.println(p.info());
 		}
 	}
 
 	public void listLeger() {
-		//TODO: Mer informasjon?
-		//TODO: Bruk toString()?
 		for (Lege l : leger) {
-			System.out.println(l.hentNavn());
+			System.out.println(l.info());
 		}
 	}
 
 	public void listLegemidler() {
-		//TODO: List all informasjon?
-		//TODO: Bruk toString()?
 		for (Legemiddel l : legemidler) {
-			System.out.println(l.hentNavn());
+			System.out.println(l.info());
 		}
+	}
+
+	public void listResepter() {
+		System.out.println("TODO: listResepter");
 	}
 }

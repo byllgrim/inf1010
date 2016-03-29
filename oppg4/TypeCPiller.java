@@ -1,6 +1,6 @@
 package oppg4;
 
-public class TypeCPiller extends Legemiddel implements Piller {
+public class TypeCPiller extends TypeC implements Piller {
 	private int antall;
 	private double virkestoffPerPille;
 

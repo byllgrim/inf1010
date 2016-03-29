@@ -33,6 +33,14 @@ public class Pasient {
 
 	public String hentNavn() {
 		//TODO: Bruk toString()?
+		//TODO: Obsolete?
 		return navn;
+	}
+
+	public String info() {
+		Long pasnr = new Long(pasientnummer);
+		return String.format("%s, %s, %s, %s, %s",
+		                     pasnr.toString(), navn,
+		                     foedselsnummer, adresse, postnummer);
 	}
 }

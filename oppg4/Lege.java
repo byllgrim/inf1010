@@ -24,4 +24,16 @@ public class Lege implements Comparable<Lege>,Lik {
 	public String hentNavn() {
 		return navn;
 	}
+
+	public String info() {
+		String avtnr = "0";
+
+		if (this instanceof Fastlege) {
+			Fastlege f = (Fastlege)this;
+			Integer nr = new Integer(f.hentAvtalenummer());
+			avtnr = nr.toString();
+		}
+
+		return String.format("%s, %s", navn, avtnr);
+	}
 }
