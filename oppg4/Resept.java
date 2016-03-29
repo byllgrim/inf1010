@@ -31,4 +31,19 @@ public class Resept {
 	public String hentPasient() {
 		return pasient;
 	}
+
+	public String info() {
+		Long lmnr = legemiddel.hentNummer();
+
+		String frg;
+		if (this instanceof ReseptBlaa)
+			frg = "blaa";
+		else
+			frg = "hvit";
+
+		return String.format("%d, %s, %s, %s, %d, %s",
+		                     nummer, frg, "TODO",
+		                     lege, lmnr, reit);
+		//TODO: im an idiot for converting int to string!
+	}
 }

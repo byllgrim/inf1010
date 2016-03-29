@@ -35,6 +35,7 @@ public class Filleser {
 			return false;
 		} catch (Exception e) {
 			System.err.println("Kunne ikke lese fil.");
+			e.printStackTrace();
 			return false;
 		}
 
@@ -82,7 +83,13 @@ public class Filleser {
 	}
 
 	private void lesResepter() throws Exception {
-		System.out.println("TODO: Les resepter");
+		String[] args = getArgs();
+
+		for (; !args[0].equals(""); args = getArgs()) {
+			if (args[0].contains("#")) continue;
+			database.leggTilResept(args[1], args[2],
+			                       args[3], args[4], args[5]);
+		}
 	}
 
 	private boolean noScanner() {

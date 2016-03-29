@@ -130,7 +130,7 @@ public class Database {
 		Resept r;
 		if (frg.equals("hvit")) {
 			r = new ReseptHvit(lm, lege, pasientnavn, reitnr);
-		} else if (frg.equals("blå")) {
+		} else if (frg.equals("blå") || frg.equals("blaa")) {
 			r = new ReseptBlaa(lm, lege, pasientnavn, reitnr);
 			//Er denne if nodvendig for riktig instanceof?
 		} else {
@@ -187,6 +187,8 @@ public class Database {
 	}
 
 	public void listResepter() {
-		System.out.println("TODO: listResepter");
+		for (Resept r : resepter) {
+			System.out.println(r.info());
+		}
 	}
 }

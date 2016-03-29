@@ -93,4 +93,8 @@ abstract public class Legemiddel {
 			return "?";
 		}
 	}
+
+	public long hentNummer() {
+		return nummer;
+	}
 }

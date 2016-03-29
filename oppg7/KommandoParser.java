@@ -45,7 +45,7 @@ public class KommandoParser {
 			database.listLegemidler();
 			break;
 		case 's':
-			System.out.println("list resepter");
+			database.listResepter();
 			break;
 		case 'x':
 			leggTilLegemiddel();
