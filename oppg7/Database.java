@@ -169,24 +169,36 @@ public class Database {
 	}
 
 	public void listPasienter() {
+		System.out.println("# Personer (nr, navn, "
+		                   + "fnr, adresse, postnr)");
+
 		for (Pasient p : pasienter) {
 			System.out.println(p.info());
 		}
 	}
 
 	public void listLeger() {
+		System.out.println("# Leger (navn, avtalenr / 0"
+		                   + " hvis ingen avtale)");
+
 		for (Lege l : leger) {
 			System.out.println(l.info());
 		}
 	}
 
 	public void listLegemidler() {
+		System.out.println("# Legemidler (nr, navn, form, type, pris,"
+		                   + " antall/mengde, virkestoff [, styrke])");
+
 		for (Legemiddel l : legemidler) {
 			System.out.println(l.info());
 		}
 	}
 
 	public void listResepter() {
+		System.out.println("# Resepter (nr, hvit/blå, persNummer, "
+		                   + "legeNavn, legemiddelNummer, reit)");
+
 		for (Resept r : resepter) {
 			System.out.println(r.info());
 		}
