@@ -14,10 +14,15 @@ abstract public class Legemiddel {
 		totalVirkestoffImg = virkestoff;
 		nummer = teller++;
 	}
-
+/*
 	public void settPris(double pris) {
 		this.pris = pris;
 	}
+
+	public double hentPris() {
+		return pris;
+	}
+*/
 
 	public String hentNavn() {
 		return preparatnavn;

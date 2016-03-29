@@ -5,6 +5,11 @@ public class ReseptBlaa extends Resept{
 	                  String pasient, int reit)
 	{
 		super(legemiddel, lege, pasient, reit);
-		this.legemiddel.settPris(0);
+		//this.legemiddel.settPris(0);
 	}
+
+/*
+	hentPris()
+		return 0;
+*/
 }

@@ -57,7 +57,7 @@ public class KommandoParser {
 			leggTilPasient();
 			break;
 		case 'u':
-			System.out.println("legg til resept");
+			leggTilResept();
 			break;
 		case 'a':
 			System.out.println("hent legemiddel til resept");
@@ -126,6 +126,16 @@ public class KommandoParser {
 		String postnr = lowercaseInput("Postnummer: ");
 
 		database.leggTilPasient(navn, fnr, adr, postnr);
+	}
+
+	private void leggTilResept() {
+		String farge = lowercaseInput("Hvit/Blå: ");
+		String prsnr = lowercaseInput("PasientNummer: ");
+		String lege = lowercaseInput("LegeNavn: ");
+		String lmnr = lowercaseInput("LegemiddelNummer: ");
+		String reit = lowercaseInput("Reit: ");
+
+		database.leggTilResept(farge, prsnr, lege, lmnr, reit);
 	}
 
 	private void printKommandoer() {

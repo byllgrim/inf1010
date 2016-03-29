@@ -104,6 +104,43 @@ public class Database {
 		touch();
 	}
 
+	public void leggTilResept(String frg, String pasientNr, String lege,
+	                          String legemiddelNr, String reit)
+	{
+		int psnr = Integer.parseInt(pasientNr);
+		Pasient pasient = pasienter.hentElement(psnr);
+		int lmnr = Integer.parseInt(legemiddelNr);
+		Legemiddel lm = legemidler.hentElement(lmnr);
+		int reitnr = Integer.parseInt(reit);
+
+		String pasientnavn;
+		try {
+			pasientnavn = pasient.hentNavn();
+		} catch (Exception e) {
+			System.err.println("error: Database: null pasient");
+			return;
+		}
+
+		//TODO: Should be handled with custom exceptions
+		if (lm == null) {
+			System.err.println("error: Database: null legemiddel");
+			return;
+		}
+
+		Resept r;
+		if (frg.equals("hvit")) {
+			r = new ReseptHvit(lm, lege, pasientnavn, reitnr);
+		} else if (frg.equals("blå")) {
+			r = new ReseptBlaa(lm, lege, pasientnavn, reitnr);
+			//Er denne if nodvendig for riktig instanceof?
+		} else {
+			System.err.println("error: Database: leggTilResept");
+			return;
+		}
+
+		resepter.settInn(r);
+	}
+
 	private LegemiddelTypeForm typeForm(String type, String form)
 	                                   throws Exception {
 		char t = type.charAt(0);
