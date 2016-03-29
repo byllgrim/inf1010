@@ -4,6 +4,7 @@ public class Main {
 	private static boolean running = true;
 
 	private Main() {}
+	//TODO: hva er dette?
 
 	public static void main(String[] args) {
 		Database database = new Database();

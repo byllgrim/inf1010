@@ -1,23 +1,36 @@
 package oppg7;
 
-import oppg6.Tabell;
-import oppg6.SortertEnkelListe;
 import oppg4.*;
+import oppg6.*;
 
 public class Database {
+	private Tabell<Pasient> pasienter;
 	private Tabell<Legemiddel> legemidler;
 	private int lmPos = 0; //TODO: Dette er ikke bra.
 	private SortertEnkelListe<Lege> leger;
-	private Tabell<Pasient> pasienter;
+	private EnkelReseptListe resepter;
+
+	private Filleser filleser;
+
+	//Kan ikke lese fil hvis du har lagt til legemidler etc manuelt
+	private boolean touched = false;
 
 	public Database() {
 		legemidler = new Tabell<Legemiddel>(100);
 		leger = new SortertEnkelListe();
 		pasienter = new Tabell<Pasient>(100);
+		resepter = new EldsteForstReseptListe();
+		filleser = new Filleser(this);
+	}
+
+	private void touch() {
+		touched = true;
 	}
 
 	public void lesFil(String filnavn) {
-		System.out.println("TODO les '" + filnavn + "'");
+		if (touched) return;
+		if(filleser.lesFil(filnavn))
+			touch();
 	}
 
 	public void leggTilLegemiddel(String navn,
@@ -70,20 +83,25 @@ public class Database {
 		}
 
 		legemidler.settInn(l);
+		touch(); //TODO: ensure execution
 	}
 
 	public void leggTilLege(String navn, String nokkel) {
 		Lege l = new Lege(navn);
 		leger.settInn(l, nokkel);
 		//TODO: Nokkel duplikat?
+		//TODO: Fastlege med nummer 0
+
+		touch();
 	}
 
 	public void leggTilPasient(String navn, String fnr,
 	                           String adr, String postnr)
 	{
 		Pasient p = new Pasient(navn, fnr, adr, postnr);
-
 		pasienter.settInn(p);
+
+		touch();
 	}
 
 	private LegemiddelTypeForm typeForm(String type, String form)

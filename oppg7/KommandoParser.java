@@ -11,7 +11,7 @@ public class KommandoParser {
 	}
 
 	public void behandleNesteKommando() {
-		String input = hentInput(">> ");
+		String input = lowercaseInput(">> ");
 		if (input.length() != 1)
 			input = "0";
 
@@ -20,7 +20,11 @@ public class KommandoParser {
 
 	private String hentInput(String prompt) {
 		System.out.printf(prompt);
-		return stdin.nextLine().toLowerCase();
+		return stdin.nextLine();
+	}
+
+	private String lowercaseInput(String prompt) {
+		return hentInput(prompt).toLowerCase();
 	}
 
 	private void utfoerKommando(char cmd) {
@@ -95,13 +99,13 @@ public class KommandoParser {
 	private void leggTilLegemiddel() {
 		System.out.println("[Type C? Styrke skal være 0]");
 
-		String navn = hentInput("Navn: ");
-		String form = hentInput("Pille/Mikstur: ");
-		String type = hentInput("A, B, C: ");
-		String pris = hentInput("Pris: ");
-		String mengde = hentInput("Mengde: ");
-		String stoff = hentInput("Virkestoff: ");
-		String styrke = hentInput("Styrke: ");
+		String navn = lowercaseInput("Navn: ");
+		String form = lowercaseInput("Pille/Mikstur: ");
+		String type = lowercaseInput("A, B, C: ");
+		String pris = lowercaseInput("Pris: ");
+		String mengde = lowercaseInput("Mengde: ");
+		String stoff = lowercaseInput("Virkestoff: ");
+		String styrke = lowercaseInput("Styrke: ");
 
 		database.leggTilLegemiddel(navn, form, type, pris,
 		                           mengde, stoff, styrke);
@@ -109,17 +113,17 @@ public class KommandoParser {
 
 	private void leggTilLege() {
 		//TODO: fastlege?
-		String navn = hentInput("Navn: ");
-		String nokkel = hentInput("Nokkel: ");
+		String navn = lowercaseInput("Navn: ");
+		String nokkel = lowercaseInput("Nokkel: ");
 
 		database.leggTilLege(navn, nokkel);
 	}
 
 	private void leggTilPasient() {
-		String navn = hentInput("Navn: ");
-		String fnr = hentInput("Foedselsnummer: ");
-		String adr = hentInput("Addresse: ");
-		String postnr = hentInput("Postnummer: ");
+		String navn = lowercaseInput("Navn: ");
+		String fnr = lowercaseInput("Foedselsnummer: ");
+		String adr = lowercaseInput("Addresse: ");
+		String postnr = lowercaseInput("Postnummer: ");
 
 		database.leggTilPasient(navn, fnr, adr, postnr);
 	}
