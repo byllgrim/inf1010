@@ -64,7 +64,7 @@ public class KommandoParser {
 			database.printLmTilResept(hentInput("ReseptNr: "));
 			break;
 		case 'b':
-			System.out.println("antall vanedannende");
+			database.printVanedannendeOslo();
 			break;
 		case 'c':
 			System.out.println("pasients blaa");

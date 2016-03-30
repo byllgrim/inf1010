@@ -2,9 +2,9 @@ package oppg4;
 
 public class ReseptBlaa extends Resept{
 	public ReseptBlaa(Legemiddel legemiddel, String lege,
-	                  String pasient, int reit)
+	                  long pasientNr, int reit)
 	{
-		super(legemiddel, lege, pasient, reit);
+		super(legemiddel, lege, pasientNr, reit);
 		//this.legemiddel.settPris(0);
 	}
 

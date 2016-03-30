@@ -6,16 +6,16 @@ public class Resept {
 
 	protected Legemiddel legemiddel;
 	protected String lege;
-	protected String pasient;
+	protected long pasientNr;
 	protected int reit;
 	protected long nummer; //TODO: unikt!
 
 	public Resept(Legemiddel legemiddel, String lege,
-	              String pasient, int reit)
+	              long pasientNr, int reit)
 	{
 		this.legemiddel = legemiddel;
 		this.lege = lege;
-		this.pasient = pasient;
+		this.pasientNr = pasientNr;
 		this.reit = reit;
 		nummer = teller++;
 	}
@@ -28,8 +28,8 @@ public class Resept {
 		return lege;
 	}
 
-	public String hentPasient() {
-		return pasient;
+	public long hentPasientNr() {
+		return pasientNr;
 	}
 
 	public String info() {
@@ -41,8 +41,8 @@ public class Resept {
 		else
 			frg = "hvit";
 
-		return String.format("%d, %s, %s, %s, %d, %s",
-		                     nummer, frg, "TODO",
+		return String.format("%d, %s, %d, %s, %d, %s",
+		                     nummer, frg, pasientNr,
 		                     lege, lmnr, reit);
 		//TODO: im an idiot for converting int to string!
 	}

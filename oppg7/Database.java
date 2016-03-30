@@ -121,18 +121,18 @@ public class Database {
 	                          String legemiddelNr, String reit)
 	{
 		int psnr = Integer.parseInt(pasientNr);
-		Pasient pasient = pasienter.hentElement(psnr);
+		//Pasient pasient = pasienter.hentElement(psnr);
 		int lmnr = Integer.parseInt(legemiddelNr);
 		Legemiddel lm = legemidler.hentElement(lmnr);
 		int reitnr = Integer.parseInt(reit);
 
-		String pasientnavn;
+		/*String pasientnavn;
 		try {
 			pasientnavn = pasient.hentNavn();
 		} catch (Exception e) {
 			System.err.println("error: Database: null pasient");
 			return;
-		}
+		}*/
 
 		//TODO: Should be handled with custom exceptions
 		if (lm == null) {
@@ -142,9 +142,9 @@ public class Database {
 
 		Resept r;
 		if (frg.equals("hvit")) {
-			r = new ReseptHvit(lm, lege, pasientnavn, reitnr);
+			r = new ReseptHvit(lm, lege, psnr, reitnr);
 		} else if (frg.equals("blå") || frg.equals("blaa")) {
-			r = new ReseptBlaa(lm, lege, pasientnavn, reitnr);
+			r = new ReseptBlaa(lm, lege, psnr, reitnr);
 			//Er denne if nodvendig for riktig instanceof?
 		} else {
 			System.err.println("error: Database: leggTilResept");
@@ -244,4 +244,21 @@ public class Database {
 		}
 	}
 
+	public void printVanedannendeOslo() {
+		int tot = 0;
+		int oslo = 0;
+
+		for (Resept r : resepter) {
+			Legemiddel lm = r.hentLegemiddel();
+
+			if (lm instanceof TypeB) {
+				tot++;
+				oslo++;
+			} else {
+				continue;
+			}
+
+			
+		}
+	}
 }
