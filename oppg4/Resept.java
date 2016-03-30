@@ -46,4 +46,8 @@ public class Resept {
 		                     lege, lmnr, reit);
 		//TODO: im an idiot for converting int to string!
 	}
+
+	public Legemiddel hentLegemiddel() {
+		return legemiddel;
+	}
 }

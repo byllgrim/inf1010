@@ -61,7 +61,7 @@ public class KommandoParser {
 			leggTilResept();
 			break;
 		case 'a':
-			System.out.println("hent legemiddel til resept");
+			database.printLmTilResept(hentInput("ReseptNr: "));
 			break;
 		case 'b':
 			System.out.println("antall vanedannende");

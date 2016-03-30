@@ -233,4 +233,15 @@ public class Database {
 	public EnkelReseptListe hentResepter() {
 		return resepter;
 	}
+
+	public void printLmTilResept(String resNr) {
+		try {
+			long nr = Long.parseLong(resNr);
+			Legemiddel l = resepter.finnResept(nr).hentLegemiddel();
+			System.out.println(l.info());
+		} catch (Exception e) {
+			System.out.println("Feil i soek av resept.");
+		}
+	}
+
 }
