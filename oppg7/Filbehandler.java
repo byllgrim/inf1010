@@ -5,14 +5,94 @@ import oppg6.*;
 import java.io.*;
 import java.util.Scanner;
 
-public class Filleser {
+public class Filbehandler {
+	//TODO: could have enum for state. safety of lesXXX
 	private Database database;
 	private Scanner fs;
-	//TODO: could have enum for state. safety of lesXXX
+	private BufferedWriter bw;
 
-	public Filleser(Database database) {
+	public Filbehandler(Database database) {
 		this.database = database;
 	}
+
+	public void skrivFil(String filnavn) {
+		try {
+			File file = new File(filnavn);
+			if (!file.exists())
+				file.createNewFile();
+			FileWriter fw = new FileWriter(file.getAbsoluteFile());
+			bw = new BufferedWriter(fw);
+		} catch (Exception e) {
+			e.printStackTrace();
+			//TODO
+		}
+
+		try {
+			skrivPasienter();
+			skrivLegemidler();
+			skrivLeger();
+			skrivResepter();
+			bw.write("# Slutt");
+			bw.close();
+		} catch (Exception e) {
+			System.out.println("Kunne ikke skrive til fil.");
+		}
+	}
+
+	private void skrivPasienter() throws Exception {
+		if (noWriter()) throw new NoWriterException();
+
+		bw.write("# Personer (nr, navn, fnr, adresse, postnr)\n");
+		for (Pasient p : database.hentPasienter()) {
+			bw.write(p.info());
+			bw.write("\n");
+		}
+
+		bw.write("\n");
+	}
+
+	private void skrivLegemidler() throws Exception {
+		if (noWriter()) throw new NoWriterException();
+
+		bw.write("# Legemidler (nr, navn, form, type, pris, "
+		         + "antall/mengde, virkestoff [, styrke])\n");
+		for (Legemiddel lm : database.hentLegemidler()) {
+			bw.write(lm.info());
+			bw.write("\n");
+		}
+
+		bw.write("\n");
+	}
+
+	private void skrivLeger() throws Exception {
+		if (noWriter()) throw new NoWriterException();
+
+		bw.write("# Leger (navn, avtalenr / 0 hvis ingen avtale)\n");
+		for (Lege l : database.hentLeger()) {
+			bw.write(l.info());
+			bw.write("\n");
+		}
+
+		bw.write("\n");
+	}
+
+	private void skrivResepter() throws Exception {
+		if (noWriter()) throw new NoWriterException();
+
+		bw.write("# Resepter (nr, hvit/blå, persNummer, legeNavn, "
+		         + "legemiddelNummer, reit)\n");
+		for (Resept r : database.hentResepter()) {
+			bw.write(r.info());
+			bw.write("\n");
+		}
+
+		bw.write("\n");
+	}
+
+	private boolean noWriter() {
+		return (bw == null);
+	}
+
 
 	public boolean lesFil(String filnavn) {
 		try {
@@ -37,9 +117,11 @@ public class Filleser {
 			System.err.println("Kunne ikke lese fil.");
 			e.printStackTrace();
 			return false;
+		} finally {
+			fs.close();
+			//fs = null?
+			return true;
 		}
-
-		return true;
 	}
 
 	private void lesPasienter() throws Exception {
@@ -106,6 +188,16 @@ public class Filleser {
 
 class NoScannerException extends IOException {
 	NoScannerException(String s) {
+		super(s);
+	}
+}
+
+class NoWriterException extends IOException {
+	NoWriterException() {
+		super("NoWriter");
+	}
+
+	NoWriterException(String s) {
 		super(s);
 	}
 }

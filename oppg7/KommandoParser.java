@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class KommandoParser {
 	private static Scanner stdin = new Scanner(System.in);
 	private Database database;
+	private String filnavn;
 
 	public KommandoParser(Database db) {
 		database = db;
@@ -33,7 +34,7 @@ public class KommandoParser {
 			lesFil();
 			break;
 		case 'w':
-			System.out.println("skriv fil");
+			skrivFil();
 			break;
 		case 'p':
 			database.listPasienter();
@@ -92,8 +93,22 @@ public class KommandoParser {
 	}
 
 	private void lesFil() {
-		String filnavn = hentInput("Filnavn: ");
+		filnavn = hentInput("Filnavn: ");
 		database.lesFil(filnavn);
+	}
+
+	private void skrivFil() {
+		String tmp;
+
+		if (filnavn == null || filnavn.equals("")) {
+			filnavn = hentInput("Filnavn: ");
+		} else {
+			tmp = hentInput("Filnavn[" + filnavn + "]: ");
+			if (!tmp.equals(""))
+				filnavn = tmp;
+		}
+
+		database.skrivFil(filnavn);
 	}
 
 	private void leggTilLegemiddel() {

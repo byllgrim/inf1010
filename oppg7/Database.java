@@ -10,7 +10,7 @@ public class Database {
 	private SortertEnkelListe<Lege> leger;
 	private EnkelReseptListe resepter;
 
-	private Filleser filleser;
+	private Filbehandler filbehandler;
 
 	//Kan ikke lese fil hvis du har lagt til legemidler etc manuelt
 	private boolean touched = false;
@@ -20,16 +20,29 @@ public class Database {
 		leger = new SortertEnkelListe();
 		pasienter = new Tabell<Pasient>(100);
 		resepter = new EldsteForstReseptListe();
-		filleser = new Filleser(this);
+		filbehandler = new Filbehandler(this);
 	}
 
 	private void touch() {
 		touched = true;
 	}
 
+	public void skrivFil(String filnavn) {
+		if (!touched) {
+			System.out.println("Ingen endringer a skrive.");
+			return;
+		}
+
+		filbehandler.skrivFil(filnavn);
+	}
+
 	public void lesFil(String filnavn) {
-		if (touched) return;
-		if(filleser.lesFil(filnavn))
+		if (touched) {
+			System.out.println("Kan ikke lese fil. Du har tukla.");
+			return;
+		}
+
+		if (filbehandler.lesFil(filnavn))
 			touch();
 	}
 
@@ -183,6 +196,7 @@ public class Database {
 
 		for (Lege l : leger) {
 			System.out.println(l.info());
+			//TODO: consider arraylist.sort()
 		}
 	}
 
@@ -202,5 +216,21 @@ public class Database {
 		for (Resept r : resepter) {
 			System.out.println(r.info());
 		}
+	}
+
+	public Tabell<Pasient> hentPasienter() {
+		return pasienter;
+	}
+
+	public Tabell<Legemiddel> hentLegemidler() {
+		return legemidler;
+	}
+
+	public SortertEnkelListe<Lege> hentLeger() {
+		return leger;
+	}
+
+	public EnkelReseptListe hentResepter() {
+		return resepter;
 	}
 }
