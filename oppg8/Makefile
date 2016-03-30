@@ -1,5 +1,8 @@
 all:
-	javac *.java
+	@javac *.java
+
+run:
+	@java Main
 
 clean:
-	rm *.class
+	@rm *.class

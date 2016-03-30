@@ -4,11 +4,10 @@ public class Rute {
 	private Rad rad;
 	private Kolonne kolonne;
 
-	public Rute(int verdi, Boks boks, Rad rad, Kolonne kolonne) {
+	public Rute(int verdi, Rad rad) {
 		this.verdi = verdi;
-		this.boks = boks;
 		this.rad = rad;
-		this.kolonne = kolonne;
+		//TODO: boks, kolonne
 	}
 
 	public int[] finnAlleMuligeTall() {
