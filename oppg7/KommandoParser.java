@@ -67,7 +67,8 @@ public class KommandoParser {
 			database.printVanedannendeOslo();
 			break;
 		case 'c':
-			System.out.println("pasients blaa");
+			String psnr = lowercaseInput("pasientNr: ");
+			database.printPasientsBlaa(psnr);
 			break;
 		case 'd':
 			System.out.println("leges miksturer");

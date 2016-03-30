@@ -152,6 +152,10 @@ public class Database {
 		}
 
 		resepter.settInn(r);
+
+		//Hva med pasienten?
+		Pasient pasient = pasienter.hentElement(psnr);
+		pasient.hentResepter().settInn(r);
 	}
 
 	private LegemiddelTypeForm typeForm(String type, String form)
@@ -267,5 +271,15 @@ public class Database {
 
 		System.out.println("Totalt vanedannende: " + tot);
 		System.out.println("Hvorav i oslo: " + oslo);
+	}
+
+	public void printPasientsBlaa(String pasientNr) {
+		int psnr = Integer.parseInt(pasientNr);
+		Pasient p = pasienter.hentElement(psnr);
+
+		for (Resept r : p.hentResepter()) {
+			if (r instanceof ReseptBlaa)
+				System.out.println(r.info());
+		}
 	}
 }
