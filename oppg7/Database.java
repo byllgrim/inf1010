@@ -282,4 +282,20 @@ public class Database {
 				System.out.println(r.info());
 		}
 	}
+
+	public void printLegesMiksturer(String lege) {
+		System.out.println("TODO: printLegesMiksturer");
+	}
+
+	public void printLegesVirkestoff(String lege) {
+		System.out.println("TODO: printLegesVirkestoff");
+	}
+
+	public void printLegesNarkotiske(String lege) {
+		System.out.println("TODO: printLegesNarkotiske");
+	}
+
+	public void printPasientsNarkotiske(String pasient) {
+		System.out.println("TODO: printPasientsNarkotiske");
+	}
 }

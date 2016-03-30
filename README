@@ -1,0 +1,18 @@
+Howto
+=====
+tar -xvf oppg7.tar
+
+bruk Makefile i hver av mappene
+
+'make run' i oppg7
+
+Ble ikke helt ferdig
+====================
+De 4 siste funksjonene krever a kunne soke etter navn blandt leger.
+Forige oppgaver sa "soke etter nokkel" sa jeg har implementert sok etter nokkel.
+Dette ble godkjent under retting sa jeg synes det er litt urettferdig.
+Med leger.sokEtterNavn() ville det vaere en triviell oppgave.
+
+Kommentar
+=========
+Jeg synes oppgavene 4, 6 og 7 har vaert veldig tvedydige.

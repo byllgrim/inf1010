@@ -29,6 +29,8 @@ public class KommandoParser {
 	}
 
 	private void utfoerKommando(char cmd) {
+		String lege, pasient;
+
 		switch (cmd) {
 		case 'r':
 			lesFil();
@@ -71,16 +73,20 @@ public class KommandoParser {
 			database.printPasientsBlaa(psnr);
 			break;
 		case 'd':
-			System.out.println("leges miksturer");
+			lege = hentInput("Leges navn: ");
+			database.printLegesMiksturer(lege);
 			break;
 		case 'e':
-			System.out.println("leges totale virkestoff");
+			lege = hentInput("Leges navn: ");
+			database.printLegesVirkestoff(lege);
 			break;
 		case 'f':
-			System.out.println("antall narkotiske per lege");
+			lege = hentInput("Leges navn: ");
+			database.printLegesNarkotiske(lege);
 			break;
 		case 'g':
-			System.out.println("gyldige narkotiske per pasient");
+			pasient = hentInput("Pasients navn: ");
+			database.printPasientsNarkotiske(pasient);
 			break;
 		case 'h':
 			printKommandoer();
