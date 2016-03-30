@@ -31,6 +31,10 @@ public class Pasient {
 		}
 	}
 
+	public String hentPostnummer() {
+		return postnummer;
+	}
+
 	public String hentNavn() {
 		//TODO: Bruk toString()?
 		//TODO: Obsolete?

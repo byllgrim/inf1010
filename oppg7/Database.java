@@ -245,6 +245,7 @@ public class Database {
 	}
 
 	public void printVanedannendeOslo() {
+	System.out.println("Vanedann");
 		int tot = 0;
 		int oslo = 0;
 
@@ -253,12 +254,18 @@ public class Database {
 
 			if (lm instanceof TypeB) {
 				tot++;
-				oslo++;
 			} else {
 				continue;
 			}
 
-			
+			int pasNr = (int)r.hentPasientNr();
+			String postNr =
+				pasienter.hentElement(pasNr).hentPostnummer();
+			if (postNr.compareTo("1300") < 0)
+				oslo++;
 		}
+
+		System.out.println("Totalt vanedannende: " + tot);
+		System.out.println("Hvorav i oslo: " + oslo);
 	}
 }
