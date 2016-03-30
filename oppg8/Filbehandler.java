@@ -76,10 +76,13 @@ public class Filbehandler {
 		switch (c) {
 		case '#':
 			v = 37;
+			break;
 		case '&':
 			v = 38;
+			break;
 		case '.':
 			v = 0;
+			break;
 		case '@':
 			v = 36;
 		}

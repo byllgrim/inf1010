@@ -9,4 +9,8 @@ public class Rad {
 		Rute rute = new Rute(verdi, this);
 		ruter[index] = rute;
 	}
+
+	public Rute hentRute(int index) {
+		return ruter[index];
+	}
 }
