@@ -3,6 +3,6 @@ public class Main {
 		Filbehandler fb = new Filbehandler();
 		Brett b = fb.lesFil();
 		b.testEnRute();
-		//TODO
+		//TODO: fullstendig main funksjon
 	}
 }

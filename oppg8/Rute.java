@@ -16,7 +16,12 @@ public class Rute {
 
 	public void settKolonne(Kolonne kolonne) {
 		this.kolonne = kolonne;
-		//TODO initialisert bitmap
+		//TODO: initialisert bitmap
+	}
+
+	public void settBoks(Boks boks) {
+		this.boks = boks;
+		//TODO: initialisert bitmap
 	}
 
 	public int[] finnAlleMuligeTall() {
@@ -34,13 +39,11 @@ public class Rute {
 				tall[v-1] = 0;
 		}
 
-/* TODO
 		for (Rute r : boks) {
 			int v = r.hentVerdi();
 			if (v != 0)
 				tall[v-1] = 0;
 		}
-*/
 
 		return fjernNuller(tall);
 	}

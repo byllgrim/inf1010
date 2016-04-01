@@ -29,10 +29,10 @@ public class Filbehandler {
 	private String hentFilnavn() {
 		System.out.printf("Filnavn: ");
 		return stdin.nextLine();
-		//TODO: gis fra cmd?
+		//TODO: filnavn gis fra cmd?
 	}
 
-	private Brett lesBrett() throws Exception { //TODO type of exception
+	private Brett lesBrett() throws Exception { //TODO: type of exception?
 		Storrelse bs = lesStorrelse();
 		Rad[] r = lesRader(bs.bredde * bs.hoyde);
 		return new Brett(bs, r);
@@ -53,7 +53,7 @@ public class Filbehandler {
 			rader[i] = lesRad(lengde);
 		}
 
-		//TODO: "For stort brett"
+		//TODO: Exception "For stort brett"
 		return rader;
 	}
 
@@ -61,7 +61,7 @@ public class Filbehandler {
 		Rad rad = new Rad(lengde);
 
 		char[] linje = fs.nextLine().toCharArray();
-		//TODO: "Antall tegn stemmer ikke"
+		//TODO: Exception "Antall tegn stemmer ikke"
 		for (int j = 0; j < lengde; j++) {
 			int v = tallVerdi(linje[j]);
 			rad.settInn(v, j);
@@ -95,9 +95,9 @@ public class Filbehandler {
 			v = (c - 58);
 
 		if (v == -1)
-			throw new Exception("TODO: Ugyldig tegn i filen");
+			throw new Exception("TODO: Exception ugyldig tegn");
 		if (!lovligIntervall(v))
-			throw new Exception("TODO: Utenfor lovlig intervall");
+			throw new Exception("TODO: Exception bad intervall");
 		else
 			return v;
 	}

@@ -1,5 +1,5 @@
 public class Brett {
-	private Storrelse bs; //TODO public?
+	private Storrelse bs;
 	private Boks[] bokser;
 	private Rad[] rader;
 	private Kolonne[] kolonner;
@@ -15,9 +15,7 @@ public class Brett {
 
 	private void opprettDatastruktur() {
 		initKolonner();
-		bokser = new Boks[lengde];
-
-		//TODO
+		initBokser();
 	}
 
 	private void initKolonner() {
@@ -36,8 +34,33 @@ public class Brett {
 		}
 	}
 
+	private void initBokser() {
+		bokser = new Boks[lengde];
+
+		for (int i = 0; i < lengde; i++) {
+			bokser[i] = new Boks(lengde);
+		}
+
+		for (int i = 0; i < lengde; i++) { //Rader
+			for (int j = 0; j < lengde; j++) { //Kolonner
+				initBoksRute(i, j);
+				//Første multiple av m og første av n
+			}
+		}
+	}
+
+	private void initBoksRute(int n, int m) {
+		int xmult = m/bs.bredde;
+		int ymult = (n/bs.hoyde)*bs.hoyde;
+
+		Boks b = bokser[xmult + ymult];
+		Rute r = rader[n].hentRute(m);
+		r.settBoks(b);
+		b.settInn(r);
+	}
+
 	public void printBrett() {
-		//TODO pen utskrift av brett
+		//TODO: pen utskrift av brett
 	}
 
 	public static int hentLengde() {
