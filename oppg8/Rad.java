@@ -1,8 +1,14 @@
-public class Rad {
-	private Rute[] ruter; //TODO: public?
+import java.util.Iterator;
+
+public class Rad implements Iterable<Rute> {
+	private Rute[] ruter;
 
 	public Rad(int lengde) {
 		ruter = new Rute[lengde];
+	}
+
+	public Iterator<Rute> iterator() {
+		return new ArrayIterator<Rute>(ruter);
 	}
 
 	public void settInn(int verdi, int index) {
@@ -12,5 +18,9 @@ public class Rad {
 
 	public Rute hentRute(int index) {
 		return ruter[index];
+	}
+
+	public int hentLengde() {
+		return ruter.length;
 	}
 }
