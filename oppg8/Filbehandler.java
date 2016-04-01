@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-//TODO: Bryter SRP med lesing av fil og tolking av rader, storrelser osv.
+//NB: Bryter SRP med lesing av fil og tolking av rader, storrelser osv.
 public class Filbehandler {
 	private Scanner fs;
 
@@ -35,7 +35,6 @@ public class Filbehandler {
 		Storrelse bs = new Storrelse();
 		bs.hoyde = Integer.parseInt(fs.nextLine());
 		bs.bredde = Integer.parseInt(fs.nextLine());
-		//TODO: tallVerdi()?
 		return bs;
 	}
 

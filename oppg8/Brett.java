@@ -44,7 +44,6 @@ public class Brett {
 		for (int i = 0; i < lengde; i++) { //Rader
 			for (int j = 0; j < lengde; j++) { //Kolonner
 				initBoksRute(i, j);
-				//Første multiple av m og første av n
 			}
 		}
 	}
@@ -60,7 +59,41 @@ public class Brett {
 	}
 
 	public void printBrett() {
-		//TODO: pen utskrift av brett
+		for (int i = 0; i < lengde; i++) { //Rader
+			for (int j = 0; j < lengde; j++) { //Kolonner
+				printChar(j, i);
+			}
+
+			System.out.println();
+			printHorizontalRule(i);
+		}
+	}
+
+	private void printChar(int m, int n) {
+		if (m != 0 && m%bs.bredde == 0)
+			System.out.printf("|");
+
+		int v = rader[n].hentRute(m).hentVerdi();
+
+		if (v == 0)
+			System.out.printf(" ");
+		else
+			System.out.printf("%d", v);
+	}
+
+	private void printHorizontalRule(int n) {
+		n++;
+		if (n == 1 || n%bs.hoyde != 0 || n == lengde)
+			return;
+
+		for (int m = 0; m < lengde; m++) {
+			if (m != 0 && m%bs.bredde == 0)
+				System.out.printf("+");
+			else
+				System.out.printf("-");
+		}
+
+		System.out.println("-");
 	}
 
 	public static int hentLengde() {

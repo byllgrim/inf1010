@@ -7,6 +7,6 @@ public class Main {
 
 		Filbehandler fb = new Filbehandler();
 		Brett b = fb.lesFil(args[0]);
-		//TODO: fullstendig main funksjon
+		b.printBrett();
 	}
 }
