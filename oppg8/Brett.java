@@ -67,8 +67,11 @@ public class Brett {
 		return lengde;
 	}
 
-	public void testEnRute() {
-		int[] tall = rader[0].hentRute(0).finnAlleMuligeTall();
-		for (int i : tall) System.out.println(i);
+	public Rute hentRute(int m, int n) {
+		return rader[n].hentRute(m);
+	}
+
+	public Boks hentBoks(int i) {
+		return bokser[i];
 	}
 }

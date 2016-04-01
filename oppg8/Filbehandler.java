@@ -4,14 +4,13 @@ import java.io.FileNotFoundException;
 
 //TODO: Bryter SRP med lesing av fil og tolking av rader, storrelser osv.
 public class Filbehandler {
-	private Scanner stdin = new Scanner(System.in);
 	private Scanner fs;
 
-	public Brett lesFil() {
+	public Brett lesFil(String filnavn) {
 		Brett b;
 
 		try {
-			File f = new File(hentFilnavn());
+			File f = new File(filnavn);
 			fs = new Scanner(f);
 			b = lesBrett();
 		} catch (FileNotFoundException e) {
@@ -24,12 +23,6 @@ public class Filbehandler {
 		}
 
 		return b;
-	}
-
-	private String hentFilnavn() {
-		System.out.printf("Filnavn: ");
-		return stdin.nextLine();
-		//TODO: filnavn gis fra cmd?
 	}
 
 	private Brett lesBrett() throws Exception { //TODO: type of exception?

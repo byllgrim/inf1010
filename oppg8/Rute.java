@@ -25,6 +25,12 @@ public class Rute {
 	}
 
 	public int[] finnAlleMuligeTall() {
+		if (verdi != 0) {
+			int[] ar = new int[1];
+			ar[0] = verdi;
+			return ar;
+		}
+
 		int[] tall = lovligeTall();
 
 		for (Rute r : rad) {
@@ -72,5 +78,9 @@ public class Rute {
 		}
 
 		return Arrays.copyOfRange(til, 0, j);
+	}
+
+	public Boks hentBoks() {
+		return boks;
 	}
 }
