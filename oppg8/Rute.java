@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Rute {
-	private boolean initialisert;
 	private int verdi;
 	private Boks boks;
 	private Rad rad;
@@ -11,17 +10,14 @@ public class Rute {
 	public Rute(int verdi, Rad rad) {
 		this.verdi = verdi;
 		this.rad = rad;
-		initialisert = false;
 	}
 
 	public void settKolonne(Kolonne kolonne) {
 		this.kolonne = kolonne;
-		//TODO: initialisert bitmap
 	}
 
 	public void settBoks(Boks boks) {
 		this.boks = boks;
-		//TODO: initialisert bitmap
 	}
 
 	public int[] finnAlleMuligeTall() {

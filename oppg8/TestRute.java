@@ -4,17 +4,23 @@ public class TestRute {
 	private static Brett brett;
 
 	public static void main(String[] args) {
-		Filbehandler fb = new Filbehandler();
-		brett = fb.lesFil("spill-1");
+		Filbehandler fb1 = new Filbehandler();
+		brett = fb1.lesFil("spill-1");
 
-		testLosningRute00();
-		testLosningRute41();
-		testLosningRute33();
-		testLosningRute52();
+		test1LosningRute00();
+		test1LosningRute41();
+		test1LosningRute33();
+		test1LosningRute52();
+
+		Filbehandler fb2 = new Filbehandler();
+		brett = fb2.lesFil("spill-2");
+
+		test2LosningRute00();
+		test2LosningRute58();
 	}
 
-	private static void testLosningRute00() {
-		System.out.println("testLosningRute00()");
+	private static void test1LosningRute00() {
+		System.out.println("test1LosningRute00()");
 		Rute r = brett.hentRute(0, 0);
 		int[] svar = r.finnAlleMuligeTall();
 		int[] fasit = {1, 4};
@@ -23,8 +29,8 @@ public class TestRute {
 		}
 	}
 
-	private static void testLosningRute41() {
-		System.out.println("testLosningRute41()");
+	private static void test1LosningRute41() {
+		System.out.println("test1LosningRute41()");
 		Rute r = brett.hentRute(4, 1);
 		int[] svar = r.finnAlleMuligeTall();
 		int[] fasit = {3, 5};
@@ -33,8 +39,8 @@ public class TestRute {
 		}
 	}
 
-	private static void testLosningRute33() {
-		System.out.println("testLosningRute33()");
+	private static void test1LosningRute33() {
+		System.out.println("test1LosningRute33()");
 		Rute r = brett.hentRute(3, 3);
 		int[] svar = r.finnAlleMuligeTall();
 		int[] fasit = {1, 2};
@@ -43,11 +49,31 @@ public class TestRute {
 		}
 	}
 
-	private static void testLosningRute52() {
-		System.out.println("testLosningRute52()");
+	private static void test1LosningRute52() {
+		System.out.println("test1LosningRute52()");
 		Rute r = brett.hentRute(5, 2);
 		int[] svar = r.finnAlleMuligeTall();
 		int[] fasit = {1, 2, 3};
+		if (!Arrays.equals(svar, fasit)) {
+			System.out.println("Error");
+		}
+	}
+
+	private static void test2LosningRute00() {
+		System.out.println("test2LosningRute00()");
+		Rute r = brett.hentRute(0, 0);
+		int[] svar = r.finnAlleMuligeTall();
+		int[] fasit = {2, 3, 4, 7, 8, 9};
+		if (!Arrays.equals(svar, fasit)) {
+			System.out.println("Error");
+		}
+	}
+
+	private static void test2LosningRute58() {
+		System.out.println("test2LosningRute58()");
+		Rute r = brett.hentRute(5, 8);
+		int[] svar = r.finnAlleMuligeTall();
+		int[] fasit = {2, 3, 4, 5, 8};
 		if (!Arrays.equals(svar, fasit)) {
 			System.out.println("Error");
 		}
