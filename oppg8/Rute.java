@@ -55,6 +55,10 @@ public class Rute {
 		return verdi;
 	}
 
+	public Boks hentBoks() {
+		return boks;
+	}
+
 	private int[] lovligeTall() {
 		int[] tall = new int[Brett.hentLengde()];
 
@@ -75,9 +79,5 @@ public class Rute {
 		}
 
 		return Arrays.copyOfRange(til, 0, j);
-	}
-
-	public Boks hentBoks() {
-		return boks;
 	}
 }
