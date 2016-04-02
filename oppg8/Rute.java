@@ -30,6 +30,7 @@ public class Rute {
 		int[] tall = lovligeTall();
 
 		for (Rute r : rad) {
+			//TODO: DRY
 			int v = r.hentVerdi();
 			if (v != 0)
 				tall[v-1] = 0;

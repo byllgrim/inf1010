@@ -2,19 +2,24 @@ public class TestBoks {
 	private static Brett brett;
 
 	public static void main(String[] args) {
-		Filbehandler f1 = new Filbehandler();
-		brett = f1.lesFil("spill-1");
+		try {
+			Filbehandler f1 = new Filbehandler();
+			brett = f1.lesFil("spill-1");
 
-		test1BoksRute00();
-		test1BoksRute32();
-		test1BoksRute24();
-		test1BoksRute35();
+			test1BoksRute00();
+			test1BoksRute32();
+			test1BoksRute24();
+			test1BoksRute35();
 
-		Filbehandler f2 = new Filbehandler();
-		brett = f2.lesFil("spill-2");
+			Filbehandler f2 = new Filbehandler();
+			brett = f2.lesFil("spill-2");
 
-		test2BoksRute00();
-		test2BoksRute88();
+			test2BoksRute00();
+			test2BoksRute88();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return;
+		}
 	}
 
 	private static void test1BoksRute00() {

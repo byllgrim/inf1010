@@ -4,19 +4,24 @@ public class TestRute {
 	private static Brett brett;
 
 	public static void main(String[] args) {
-		Filbehandler fb1 = new Filbehandler();
-		brett = fb1.lesFil("spill-1");
+		try {
+			Filbehandler fb1 = new Filbehandler();
+			brett = fb1.lesFil("spill-1");
 
-		test1LosningRute00();
-		test1LosningRute41();
-		test1LosningRute33();
-		test1LosningRute52();
+			test1LosningRute00();
+			test1LosningRute41();
+			test1LosningRute33();
+			test1LosningRute52();
 
-		Filbehandler fb2 = new Filbehandler();
-		brett = fb2.lesFil("spill-2");
+			Filbehandler fb2 = new Filbehandler();
+			brett = fb2.lesFil("spill-2");
 
-		test2LosningRute00();
-		test2LosningRute58();
+			test2LosningRute00();
+			test2LosningRute58();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return;
+		}
 	}
 
 	private static void test1LosningRute00() {

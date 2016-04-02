@@ -1,12 +1,11 @@
 public class Main {
 	public static void main(String[] args) {
-		if (args.length != 1) {
-			System.out.println("Usage: java Main filnavn");
-			return;
+		try {
+			Filbehandler fb = new Filbehandler();
+			Brett b = fb.lesFil(args[0]);
+			b.printBrett();
+		} catch (Exception e) {
+			//TODO: Catch various exceptions
 		}
-
-		Filbehandler fb = new Filbehandler();
-		Brett b = fb.lesFil(args[0]);
-		b.printBrett();
 	}
 }

@@ -6,54 +6,51 @@ import java.io.FileNotFoundException;
 public class Filbehandler {
 	private Scanner fs;
 
-	public Brett lesFil(String filnavn) {
+	public Brett lesFil(String filnavn) throws RuntimeException,
+	                                           FileNotFoundException
+	                                           //TODO: consider custom
+	{
 		Brett b;
 
-		try {
-			File f = new File(filnavn);
-			fs = new Scanner(f);
-			b = lesBrett();
-		} catch (FileNotFoundException e) {
-			System.out.println("Angitt filnavn eksisterer ikke");
-			b = null;
-		} catch (Exception e) {
-			System.out.println("Ukjent feil");
-			e.printStackTrace();
-			b = null;
-		}
-
-		return b;
+		File f = new File(filnavn);
+		fs = new Scanner(f);
+		return lesBrett();
 	}
 
-	private Brett lesBrett() throws Exception { //TODO: type of exception?
+	private Brett lesBrett() throws RuntimeException {
 		Storrelse bs = lesStorrelse();
 		Rad[] r = lesRader(bs.bredde * bs.hoyde);
 		return new Brett(bs, r);
 	}
 
-	private Storrelse lesStorrelse() throws Exception {
+	private Storrelse lesStorrelse() throws RuntimeException {
 		Storrelse bs = new Storrelse();
 		bs.hoyde = Integer.parseInt(fs.nextLine());
 		bs.bredde = Integer.parseInt(fs.nextLine());
 		return bs;
 	}
 
-	private Rad[] lesRader(int lengde) throws Exception {
+	private Rad[] lesRader(int lengde) throws RuntimeException {
 		Rad[] rader = new Rad[lengde];
 
 		for (int i = 0; i < lengde; i++) {
 			rader[i] = lesRad(lengde);
 		}
 
-		//TODO: Exception "For stort brett"
+		if (fs.hasNext()) //TODO: consider hasNextLine
+			throw new RuntimeException("For stort brett");
+
 		return rader;
 	}
 
-	private Rad lesRad(int lengde) throws Exception {
+	private Rad lesRad(int lengde) throws RuntimeException {
 		Rad rad = new Rad(lengde);
 
 		char[] linje = fs.nextLine().toCharArray();
-		//TODO: Exception "Antall tegn stemmer ikke"
+
+		if (linje.length != lengde)
+			throw new RuntimeException("Feil antall tegn i linje");
+
 		for (int j = 0; j < lengde; j++) {
 			int v = tallVerdi(linje[j]);
 			rad.settInn(v, j);
@@ -62,7 +59,7 @@ public class Filbehandler {
 		return rad;
 	}
 
-	private int tallVerdi(char c) throws Exception {
+	private int tallVerdi(char c) throws RuntimeException {
 		int v = -1;
 
 		switch (c) {
@@ -87,9 +84,9 @@ public class Filbehandler {
 			v = (c - 58);
 
 		if (v == -1)
-			throw new Exception("TODO: Exception ugyldig tegn");
+			throw new RuntimeException("Ugyldig tegn");
 		if (!lovligIntervall(v))
-			throw new Exception("TODO: Exception bad intervall");
+			throw new RuntimeException("Ulovlig intervall");
 		else
 			return v;
 	}
@@ -98,3 +95,9 @@ public class Filbehandler {
 		return ((i >= 0 && i <= 64) || i == 0);
 	}
 }
+
+/*
+class UlovligIntervallException extends RuntimeException {
+	Trengs ikke fordi den ikke gjor noe spesielt
+}
+*/
