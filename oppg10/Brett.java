@@ -80,8 +80,7 @@ public class Brett {
 		if (v == 0)
 			System.out.printf(" ");
 		else
-			System.out.printf("%d", v);
-			//TODO print riktig symbol
+			System.out.printf("%c", VerdiKonverterer.tilSymbol(v));
 	}
 
 	private static void printHorizontalRule(int n) {
