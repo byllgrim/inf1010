@@ -1,3 +1,5 @@
+//TODO Alle disse static metodene er for aa spare Rute for Brett-peker
+
 public class Brett {
 	private static Storrelse bs;
 	private static Boks[] bokser;
@@ -69,7 +71,7 @@ public class Brett {
 		}
 	}
 
-	private void printChar(int m, int n) {
+	private static void printChar(int m, int n) {
 		if (m != 0 && m%bs.bredde == 0)
 			System.out.printf("|");
 
@@ -81,7 +83,7 @@ public class Brett {
 			System.out.printf("%d", v);
 	}
 
-	private void printHorizontalRule(int n) {
+	private static void printHorizontalRule(int n) {
 		n++;
 		if (n == 1 || n%bs.hoyde != 0 || n == lengde)
 			return;
@@ -156,7 +158,16 @@ public class Brett {
 	}
 
 	public static void printLosning() {
-		System.out.println("Her kommer losningen.");
+		System.out.println();
+		//TODO dette duplikerer printBrett()
+		for (int i = 0; i < lengde; i++) { //Rader
+			for (int j = 0; j < lengde; j++) { //Kolonner
+				printChar(j, i);
+			}
+
+			System.out.println();
+			printHorizontalRule(i);
+		}
 	}
 
 	public void losBrett() {
