@@ -81,6 +81,7 @@ public class Brett {
 			System.out.printf(" ");
 		else
 			System.out.printf("%d", v);
+			//TODO print riktig symbol
 	}
 
 	private static void printHorizontalRule(int n) {
@@ -90,12 +91,12 @@ public class Brett {
 
 		for (int m = 0; m < lengde; m++) {
 			if (m != 0 && m%bs.bredde == 0)
-				System.out.printf("+");
+				System.out.printf("+-");
 			else
 				System.out.printf("-");
 		}
 
-		System.out.println("-");
+		System.out.println();
 	}
 
 	public static int hentLengde() {
