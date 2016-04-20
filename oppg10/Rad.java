@@ -45,4 +45,13 @@ public class Rad implements Iterable<Rute> {
 		//TODO hva om alle er tomme?
 		return null;
 	}
+
+	public int ruteIndex(Rute r) {
+		for (int i = 0; i < ruter.length; i++) {
+			if (r == ruter[i])
+				return i;
+		}
+
+		return -1; //fant ikke ruten
+	}
 }

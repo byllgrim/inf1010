@@ -6,25 +6,36 @@ public class Rute {
 	private Boks boks;
 	private Rad rad;
 	private Kolonne kolonne;
+	private boolean konstant; //gitt fra fil
 
 	public Rute(int verdi, Rad rad) {
 		this.verdi = verdi;
 		this.rad = rad;
+
+		if (verdi == 0)
+			konstant = false;
+		else
+			konstant = true;
 	}
 
 	public void fyllUtDenneRuteOgResten() {
 		int[] muligeTall = finnAlleMuligeTall();
-		Rute neste = Brett.nesteRute(this);
-		//System.out.println("Verdi: " + verdi);
+		/*if (muligeTall.length == 0) {
+			System.out.println("Dead end");
+		}*/
 
+		Rute neste = Brett.nesteRute(this);
 		for (int i = 0; i < muligeTall.length; i++ ) {
 			verdi = muligeTall[i];
 
-			if (neste == null)
-				Brett.printLosning();
+			if (neste == null) //Siste rute
+				Brett.printLosning(); //TODO ALLE losninger
 			else
 				neste.fyllUtDenneRuteOgResten();
 		}
+
+		//TODO before return reset value to 0
+		if (!konstant) verdi = 0;
 	}
 
 	public void settKolonne(Kolonne kolonne) {

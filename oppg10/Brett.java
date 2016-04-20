@@ -113,40 +113,30 @@ public class Brett {
 	public static Rute nesteRute(Rute r) {
 		Rad rad = r.hentRad();
 
-		if (r == sisteTommeRuteIBrett()) {
-			System.out.println("Siste rute");
+		if (r == sisteRuteIBrett())
 			return null; //Siste Rute
-		} else if (r == rad.sisteTommeRute()) {
+		else if (r == rad.hentRute(lengde-1)) //siste i rad
 			return forsteINesteRad(rad);
-		} else {
+		else
 			return nesteISammeRad(r);
-		}
 	}
 
-	private static Rute sisteTommeRuteIBrett() {
-		for (int i = lengde-1; i >= 0; i--) {
-			for (int j = lengde-1; j >= 0; j--) {
-				Rute r = rader[i].hentRute(j);
-				if (r.hentVerdi() == 0)
-					return r;
-			}
-		}
-
-		//TODO hva om alt er tomt?
-		return null;
+	private static Rute sisteRuteIBrett() {
+		return rader[lengde-1].hentRute(lengde-1);
 	}
 
 	private static Rute forsteINesteRad(Rad r) {
 		for (int i = 0; i < lengde-1; i++) {
-			if (r == rader[i])
-				return rader[i+1].forsteTommeRute();
+			if (r == rader[i]) {
+				return rader[i+1].hentRute(0);
+			}
 		}
 
+		System.out.println("forsteINesteRad failet");
 		return null; //TODO dette skal ikke skje
 	}
 
 	private static Rute nesteISammeRad(Rute r) {
-		//TODO neste TOMME rute
 		Rad rad = r.hentRad();
 
 		for (int i = 0; i < lengde-1; i++) {
@@ -154,6 +144,7 @@ public class Brett {
 				return rad.hentRute(i+1);
 		}
 
+		System.out.println("nesteISammeRad failet");
 		return null; //TODO dette skal ikke skje
 	}
 
