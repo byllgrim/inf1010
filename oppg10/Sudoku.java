@@ -5,7 +5,7 @@ public class Sudoku {
 			Brett b = fb.lesFil(args[0]);
 			b.printBrett();
 
-			SudokuBeholder sb = new SudokuBeholder();
+			SudokuBeholder sb = new SudokuBeholder(b);
 			b.losBrett(sb);
 			fb.skrivFil(sb, args[1]);
 		} catch (IndexOutOfBoundsException e) {

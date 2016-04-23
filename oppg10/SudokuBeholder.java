@@ -1,15 +1,23 @@
 import java.util.Stack;
 
 public class SudokuBeholder {
-	private int antallLosninger;
 	private final int maxLosninger = 3500;
-	private Stack<Brett> losninger;
+	private Stack<String> losninger;
+	private int hoyde;
+	private int bredde;
 
-	public void settInn(Brett b) {
-		losninger.push(b);
+	public SudokuBeholder(Brett brett) {
+		this.hoyde = brett.hentHoyde();
+		this.bredde = brett.hentBredde();
+		losninger = new Stack<String>();
 	}
 
-	public Brett taUt() {
+	public void settInn(String losning) {
+		if (losninger.size() < maxLosninger)
+			losninger.push(losning);
+	}
+
+	public String taUt() {
 		if (!losninger.empty())
 			return losninger.pop();
 		else
@@ -17,10 +25,18 @@ public class SudokuBeholder {
 	}
 
 	public int hentAntallLosninger() {
-		return antallLosninger;
+		return losninger.size();
 	}
 
 	public int hentMax() {
 		return maxLosninger;
+	}
+
+	public int hentHoyde() {
+		return hoyde;
+	}
+
+	public int hentBredde() {
+		return bredde;
 	}
 }

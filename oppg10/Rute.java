@@ -3,9 +3,10 @@ import java.util.Arrays;
 
 public class Rute {
 	private int verdi;
-	private Boks boks;
 	private Rad rad;
+	private Boks boks;
 	private Kolonne kolonne;
+	private Brett brett;
 	private boolean konstant; //gitt fra fil
 
 	public Rute(int verdi, Rad rad) {
@@ -24,14 +25,16 @@ public class Rute {
 			System.out.println("Dead end");
 		}*/
 
-		Rute neste = Brett.nesteRute(this);
+		Rute neste = brett.nesteRute(this);
 		for (int i = 0; i < muligeTall.length; i++ ) {
 			verdi = muligeTall[i];
 
-			if (neste == null) //Siste rute
-				Brett.printLosning(); //TODO ALLE losninger
-			else
+			if (neste == null) { //Siste rute
+				brett.leverTilBeholder();
+				brett.printLosning(); //TODO ALLE losninger
+			} else {
 				neste.fyllUtDenneRuteOgResten();
+			}
 		}
 
 		//TODO before return reset value to 0
@@ -90,9 +93,9 @@ public class Rute {
 	}
 
 	private int[] lovligeTall() {
-		int[] tall = new int[Brett.hentLengde()];
+		int[] tall = new int[brett.hentLengde()];
 
-		for (int i = 1; i <= Brett.hentLengde(); i++) {
+		for (int i = 1; i <= brett.hentLengde(); i++) {
 			tall[i-1] = i;
 		}
 
@@ -109,5 +112,10 @@ public class Rute {
 		}
 
 		return Arrays.copyOfRange(til, 0, j);
+	}
+
+	public void settBrett(Brett brett) {
+		if (this.brett == null)
+			this.brett = brett;
 	}
 }

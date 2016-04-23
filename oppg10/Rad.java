@@ -2,6 +2,7 @@ import java.util.Iterator;
 
 public class Rad implements Iterable<Rute> {
 	private Rute[] ruter;
+	private Brett brett;
 
 	public Rad(int lengde) {
 		ruter = new Rute[lengde];
@@ -25,7 +26,7 @@ public class Rad implements Iterable<Rute> {
 	}
 
 	public Rute sisteTommeRute() {
-		int sisteIndex = Brett.hentLengde() - 1;
+		int sisteIndex = brett.hentLengde() - 1;
 		for (int i = sisteIndex; i >= 0; i--) {
 			if (ruter[i].hentVerdi() == 0)
 				return ruter[i];

@@ -21,7 +21,7 @@ public class TestBrett {
 		int[] verdier = new int[lengde*lengde];
 		for (int i = 0; r != null; i++) {
 			verdier[i] = r.hentVerdi();
-			r = Brett.nesteRute(r);
+			r = brett.nesteRute(r);
 		}
 
 		int[] fasit = {0, 0, 3, 6, 0, 0,

@@ -64,8 +64,8 @@ public class Filbehandler {
 	public void skrivFil(SudokuBeholder sb, String filnavn) {
 		try {
 			utfil = new PrintWriter(new File(filnavn));
-			utfil.println(Brett.hentHoyde());
-			utfil.println(Brett.hentBredde());
+			utfil.println(sb.hentHoyde());
+			utfil.println(sb.hentBredde());
 			skrivLosninger(sb);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace(); //TODO this is sloppy
@@ -78,13 +78,7 @@ public class Filbehandler {
 		int grense = Math.min(sb.hentAntallLosninger(), sb.hentMax());
 		for (int i = 0; i < grense; i++) {
 			utfil.printf("%d: ", i);
-			skrivBrett(sb.taUt());
-		}
-	}
-
-	private void skrivBrett(Brett b) {
-		Rad[] rader = b.hentRader();
-		for (int i = 0; i < Brett.hentLengde(); i++) { //TODO unstatic
+			utfil.println(sb.taUt());
 		}
 	}
 }

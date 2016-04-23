@@ -1,11 +1,9 @@
-//TODO Alle disse static metodene er for aa spare Rute for Brett-peker
-
 public class Brett {
-	private static Storrelse bs; //BoksStorrelse
-	private static Boks[] bokser;
-	private static Rad[] rader;
-	private static Kolonne[] kolonner;
-	private static int lengde;
+	private Storrelse bs; //BoksStorrelse
+	private Boks[] bokser;
+	private Rad[] rader;
+	private Kolonne[] kolonner;
+	private int lengde;
 	private SudokuBeholder sb;
 
 	public Brett(Storrelse boksStorrelse, Rad[] rader) {
@@ -18,6 +16,7 @@ public class Brett {
 	private void opprettDatastruktur() {
 		initKolonner();
 		initBokser();
+		giRuterBrett();
 	}
 
 	private void initKolonner() {
@@ -60,6 +59,14 @@ public class Brett {
 		b.settInn(r);
 	}
 
+	private void giRuterBrett() {
+		for (int i = 0; i < rader.length; i++) {
+			for (Rute r : rader[i]) {
+				r.settBrett(this);
+			}
+		}
+	}
+
 	public void printBrett() {
 		for (int i = 0; i < lengde; i++) { //Rader
 			for (int j = 0; j < lengde; j++) { //Kolonner
@@ -71,7 +78,7 @@ public class Brett {
 		}
 	}
 
-	private static void printChar(int m, int n) {
+	private void printChar(int m, int n) {
 		if (m != 0 && m%bs.bredde == 0)
 			System.out.printf("|");
 
@@ -83,7 +90,7 @@ public class Brett {
 			System.out.printf("%c", VerdiKonverterer.tilSymbol(v));
 	}
 
-	private static void printHorizontalRule(int n) {
+	private void printHorizontalRule(int n) {
 		n++;
 		if (n == 1 || n%bs.hoyde != 0 || n == lengde)
 			return;
@@ -98,7 +105,7 @@ public class Brett {
 		System.out.println();
 	}
 
-	public static int hentLengde() {
+	public int hentLengde() {
 		return lengde;
 	}
 
@@ -110,24 +117,22 @@ public class Brett {
 		return bokser[i];
 	}
 
-	public static Rute nesteRute(Rute r) {
+	public Rute nesteRute(Rute r) {
 		Rad rad = r.hentRad();
 
-		if (r == sisteRuteIBrett()) {
-			//TODO sb.settInn();
-			return null; //Siste Rute
-		} else if (r == rad.hentRute(lengde-1)) { //siste i rad
+		if (r == sisteRuteIBrett())
+			return null;
+		else if (r == rad.hentRute(lengde-1)) //siste i rad
 			return forsteINesteRad(rad);
-		} else {
+		else
 			return nesteISammeRad(r);
-		}
 	}
 
-	private static Rute sisteRuteIBrett() {
+	private Rute sisteRuteIBrett() {
 		return rader[lengde-1].hentRute(lengde-1);
 	}
 
-	private static Rute forsteINesteRad(Rad r) {
+	private Rute forsteINesteRad(Rad r) {
 		for (int i = 0; i < lengde-1; i++) {
 			if (r == rader[i]) {
 				return rader[i+1].hentRute(0);
@@ -138,7 +143,7 @@ public class Brett {
 		return null; //TODO dette skal ikke skje
 	}
 
-	private static Rute nesteISammeRad(Rute r) {
+	private Rute nesteISammeRad(Rute r) {
 		Rad rad = r.hentRad();
 
 		for (int i = 0; i < lengde-1; i++) {
@@ -150,7 +155,7 @@ public class Brett {
 		return null; //TODO dette skal ikke skje
 	}
 
-	public static void printLosning() {
+	public void printLosning() {
 		System.out.println();
 		//TODO dette duplikerer printBrett()
 		for (int i = 0; i < lengde; i++) { //Rader
@@ -169,15 +174,34 @@ public class Brett {
 		//TODO dette er side effects deluxe
 	}
 
-	public static int hentBredde() {
+	public int hentBredde() {
 		return bs.bredde;
 	}
 
-	public static int hentHoyde() {
+	public int hentHoyde() {
 		return bs.hoyde;
 	}
 
 	public Rad[] hentRader() {
-		return rader; //TODO unstatic
+		return rader;
 	}
+
+	public String toString() {
+		String str = "";
+
+		for (int i = 0; i < lengde; i++) {
+			for (Rute r : rader[i]) {
+				int v = r.hentVerdi();
+				str += VerdiKonverterer.tilSymbol(v);
+			}
+			str += "//";
+		}
+
+		return str;
+	}
+
+	public void leverTilBeholder() {
+		sb.settInn(this.toString());
+	}
+
 }
