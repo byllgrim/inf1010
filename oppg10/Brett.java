@@ -1,12 +1,12 @@
 //TODO Alle disse static metodene er for aa spare Rute for Brett-peker
 
 public class Brett {
-	private static Storrelse bs;
+	private static Storrelse bs; //BoksStorrelse
 	private static Boks[] bokser;
 	private static Rad[] rader;
 	private static Kolonne[] kolonner;
-
 	private static int lengde;
+	private SudokuBeholder sb;
 
 	public Brett(Storrelse boksStorrelse, Rad[] rader) {
 		this.bs = boksStorrelse;
@@ -113,12 +113,14 @@ public class Brett {
 	public static Rute nesteRute(Rute r) {
 		Rad rad = r.hentRad();
 
-		if (r == sisteRuteIBrett())
+		if (r == sisteRuteIBrett()) {
+			//TODO sb.settInn();
 			return null; //Siste Rute
-		else if (r == rad.hentRute(lengde-1)) //siste i rad
+		} else if (r == rad.hentRute(lengde-1)) { //siste i rad
 			return forsteINesteRad(rad);
-		else
+		} else {
 			return nesteISammeRad(r);
+		}
 	}
 
 	private static Rute sisteRuteIBrett() {
@@ -161,7 +163,21 @@ public class Brett {
 		}
 	}
 
-	public void losBrett() {
+	public void losBrett(SudokuBeholder sb) {
+		this.sb = sb;
 		rader[0].hentRute(0).fyllUtDenneRuteOgResten();
+		//TODO dette er side effects deluxe
+	}
+
+	public static int hentBredde() {
+		return bs.bredde;
+	}
+
+	public static int hentHoyde() {
+		return bs.hoyde;
+	}
+
+	public Rad[] hentRader() {
+		return rader; //TODO unstatic
 	}
 }

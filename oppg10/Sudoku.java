@@ -1,12 +1,15 @@
-public class Main {
+public class Sudoku {
 	public static void main(String[] args) {
 		try {
 			Filbehandler fb = new Filbehandler();
 			Brett b = fb.lesFil(args[0]);
 			b.printBrett();
-			b.losBrett();
+
+			SudokuBeholder sb = new SudokuBeholder();
+			b.losBrett(sb);
+			fb.skrivFil(sb, args[1]);
 		} catch (IndexOutOfBoundsException e) {
-			System.out.println("Forste argument er filnavn.");
+			System.out.println("usage: Sudoku spillfil løsningfil");
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
