@@ -8,6 +8,8 @@ public class Sudoku {
 			SudokuBeholder sb = new SudokuBeholder(b);
 			b.losBrett(sb);
 			fb.skrivFil(sb, args[1]);
+
+			LosningsViser.launch(LosningsViser.class);
 		} catch (IndexOutOfBoundsException e) {
 			System.out.println("usage: Sudoku spillfil løsningfil");
 			e.printStackTrace();
