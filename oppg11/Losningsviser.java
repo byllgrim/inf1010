@@ -7,7 +7,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class LosningsViser extends Application {
+public class Losningsviser extends Application {
+	private static SudokuBeholder sb;
+
+	public static void settBeholder(SudokuBeholder sb) {
+		Losningsviser.sb = sb;
+	}
+
 	@Override
 	public void start(Stage stage) {
 		BorderPane hovedPanel = new BorderPane();
