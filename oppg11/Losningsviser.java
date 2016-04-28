@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 public class Losningsviser extends Application {
 	private static SudokuBeholder sb;
 	private static GridPane brett = new GridPane();
+	private static Text[][] ruter;
 
 	public static void settBeholder(SudokuBeholder sb) {
 		Losningsviser.sb = sb;
@@ -22,6 +23,7 @@ public class Losningsviser extends Application {
 		BorderPane hovedPanel = new BorderPane();
 		hovedPanel.setBottom(lagNesteknapp());
 		hovedPanel.setCenter(brett);
+		initBrett();
 		oppdaterBrett(); //TODO plasser i en loop?
 
 		Scene scene = new Scene(hovedPanel);
@@ -30,14 +32,27 @@ public class Losningsviser extends Application {
 		stage.show();
 	}
 
-	public static void oppdaterBrett() { //TODO public for only one class?
-		int[][] ruter = sb.taUtInt();
-		int lengde = ruter[0].length;
+	private void initBrett() {
+		int lengde = sb.hentLengde();
+		ruter = new Text[lengde][lengde];
 		for (int i = 0; i < lengde; i++) {
 			for (int j = 0; j < lengde; j++) {
-				String v = Integer.toString(ruter[i][j]);
-				brett.add(new Text(v), i, j);
-				//TODO ikke overskriv tallene. initBrett()?
+				ruter[i][j] = new Text();
+				brett.add(ruter[i][j], i, j);
+			}
+		}
+	}
+
+	public static void oppdaterBrett() { //TODO public for only one class?
+		int[][] tall = sb.taUtInt();
+		if (tall == null)
+			return;
+
+		int lengde = tall[0].length;
+		for (int i = 0; i < lengde; i++) {
+			for (int j = 0; j < lengde; j++) {
+				String v = Integer.toString(tall[i][j]);
+				ruter[i][j].setText(v);
 			}
 		}
 	}

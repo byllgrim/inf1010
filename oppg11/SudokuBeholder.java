@@ -30,7 +30,7 @@ public class SudokuBeholder implements Iterable<String>{
 
 	public int[][] taUtInt() {
 		String brett = taUtString();
-		return losningTilInt(brett);
+		return (brett == null ? null : losningTilInt(brett));
 	}
 
 	private int[][] losningTilInt(String brett) {
@@ -63,6 +63,10 @@ public class SudokuBeholder implements Iterable<String>{
 
 	public int hentBredde() {
 		return bredde;
+	}
+
+	public int hentLengde() {
+		return hoyde*bredde;
 	}
 
 	public Iterator<String> iterator() {
