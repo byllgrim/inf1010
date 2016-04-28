@@ -75,10 +75,10 @@ public class Filbehandler {
 	}
 
 	private void skrivLosninger(SudokuBeholder sb) {
-		int grense = Math.min(sb.hentAntallLosninger(), sb.hentMax());
-		for (int i = 0; i < grense; i++) {
-			utfil.printf("%d: ", i);
-			utfil.println(sb.taUt());
+		int i = 0;
+		for (String s : sb) {
+			utfil.printf("%d: ", i++);
+			utfil.println(s);
 		}
 	}
 }

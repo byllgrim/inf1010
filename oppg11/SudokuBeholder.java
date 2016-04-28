@@ -1,6 +1,7 @@
+import java.util.Iterator;
 import java.util.Stack;
 
-public class SudokuBeholder {
+public class SudokuBeholder implements Iterable<String>{
 	private final int maxLosninger = 3500;
 	private int total;
 	private Stack<String> losninger;
@@ -20,11 +21,32 @@ public class SudokuBeholder {
 			losninger.push(losning);
 	}
 
-	public String taUt() {
+	public String taUtString() {
 		if (!losninger.empty())
 			return losninger.pop();
 		else
 			return null;
+	}
+
+	public int[][] taUtInt() {
+		String brett = taUtString();
+		return losningTilInt(brett);
+	}
+
+	private int[][] losningTilInt(String brett) {
+		int lengde = hoyde*bredde;
+		int[][] ruter = new int[lengde][lengde];
+		int pos = 0;
+
+		for (int i = 0; i < lengde; i++) {
+			for (int j = 0; j < lengde; j++) {
+				char c = brett.charAt(pos++);
+				ruter[i][j] = VerdiKonverterer.tallVerdi(c);
+			}
+			pos += 2;
+		}
+
+		return ruter;
 	}
 
 	public int hentAntallLosninger() {
@@ -41,5 +63,9 @@ public class SudokuBeholder {
 
 	public int hentBredde() {
 		return bredde;
+	}
+
+	public Iterator<String> iterator() {
+		return losninger.iterator();
 	}
 }

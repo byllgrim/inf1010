@@ -4,11 +4,14 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+//TODO det er mye static fordi Application instance er vanskelig
 public class Losningsviser extends Application {
 	private static SudokuBeholder sb;
+	private static GridPane brett = new GridPane();
 
 	public static void settBeholder(SudokuBeholder sb) {
 		Losningsviser.sb = sb;
@@ -26,12 +29,15 @@ public class Losningsviser extends Application {
 		stage.show();
 	}
 
-	private GridPane lagSudokupanel() {
-		GridPane gridpane = new GridPane();
+	private GridPane lagSudokupanel() { //TODO oppdaterBrett()
+		GridPane gp = new GridPane();
 
 		//TODO
+		int[][] ruter = sb.taUtInt();
+		gp.add(new Text("0"), 0, 0);
+		gp.add(new Text("9"), 9, 9);
 
-		return gridpane;
+		return gp;
 	}
 
 	private HBox lagNesteknapp() {
