@@ -20,8 +20,9 @@ public class Losningsviser extends Application {
 	@Override
 	public void start(Stage stage) {
 		BorderPane hovedPanel = new BorderPane();
-		hovedPanel.setCenter(lagSudokupanel());
 		hovedPanel.setBottom(lagNesteknapp());
+		hovedPanel.setCenter(brett);
+		oppdaterBrett(); //TODO plasser i en loop?
 
 		Scene scene = new Scene(hovedPanel);
 		stage.setScene(scene);
@@ -29,22 +30,23 @@ public class Losningsviser extends Application {
 		stage.show();
 	}
 
-	private GridPane lagSudokupanel() { //TODO oppdaterBrett()
-		GridPane gp = new GridPane();
-
-		//TODO
+	public static void oppdaterBrett() { //TODO public for only one class?
 		int[][] ruter = sb.taUtInt();
-		gp.add(new Text("0"), 0, 0);
-		gp.add(new Text("9"), 9, 9);
-
-		return gp;
+		int lengde = ruter[0].length;
+		for (int i = 0; i < lengde; i++) {
+			for (int j = 0; j < lengde; j++) {
+				String v = Integer.toString(ruter[i][j]);
+				brett.add(new Text(v), i, j);
+				//TODO ikke overskriv tallene. initBrett()?
+			}
+		}
 	}
 
 	private HBox lagNesteknapp() {
 		HBox hbox = new HBox();
 
 		Button nesteKnapp = new Button("Neste losning");
-		//TODO set event handler
+		nesteKnapp.setOnAction(new NesteBrettHandler());
 
 		hbox.getChildren().addAll(nesteKnapp);
 		hbox.setAlignment(Pos.CENTER);

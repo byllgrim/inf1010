@@ -41,7 +41,7 @@ public class SudokuBeholder implements Iterable<String>{
 		for (int i = 0; i < lengde; i++) {
 			for (int j = 0; j < lengde; j++) {
 				char c = brett.charAt(pos++);
-				ruter[i][j] = VerdiKonverterer.tallVerdi(c);
+				ruter[j][i] = VerdiKonverterer.tallVerdi(c);
 			}
 			pos += 2;
 		}
