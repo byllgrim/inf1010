@@ -1,5 +1,7 @@
 import java.io.File;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -17,30 +19,17 @@ public class Sudoku extends Application {
 	private static Text[][] ruter;
 
 	public static void main(String[] args) {
-		try {
-			Filbehandler fb = new Filbehandler();
-			//File f = new FileChooser().showOpenDialog(null);
-			//Brett b = fb.lesFil(f);
-			Brett b = fb.lesFil(new File("spill-0"));
-			b.printBrett();
-
-			sb = new SudokuBeholder(b);
-			b.losBrett(sb);
-			fb.skrivFil(sb, "losninger.txt");
-
 			launch();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 
 	@Override
 	public void start(Stage stage) {
 		BorderPane hovedPanel = new BorderPane();
+		hovedPanel.setTop(lagLastFilKnapp());
 		hovedPanel.setBottom(lagNesteknapp());
 		hovedPanel.setCenter(brett);
-		initBrett();
-		oppdaterBrett(); //TODO plasser i en loop?
+		//initBrett();
+		//oppdaterBrett(); //TODO plasser i en loop?
 
 		Scene scene = new Scene(hovedPanel);
 		stage.setScene(scene);
@@ -48,7 +37,25 @@ public class Sudoku extends Application {
 		stage.show();
 	}
 
-	private void initBrett() {
+	public static void losSudoku() {
+		try {
+			Filbehandler fb = new Filbehandler();
+			File f = new FileChooser().showOpenDialog(null);
+			Brett b = fb.lesFil(f);
+			//b.printBrett();
+
+			sb = new SudokuBeholder(b);
+			b.losBrett(sb);
+			fb.skrivFil(sb, "losninger.txt");
+
+			initBrett();
+			oppdaterBrett();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static void initBrett() {
 		int lengde = sb.hentLengde();
 		ruter = new Text[lengde][lengde];
 		for (int i = 0; i < lengde; i++) {
@@ -60,7 +67,12 @@ public class Sudoku extends Application {
 	}
 
 	public static void oppdaterBrett() { //TODO public for only one class?
-		int[][] tall = sb.taUtInt();
+		int[][] tall;
+		if (sb !=null)
+			tall = sb.taUtInt();
+		else
+			return;
+
 		if (tall == null)
 			return;
 
@@ -71,6 +83,19 @@ public class Sudoku extends Application {
 				ruter[i][j].setText(v);
 			}
 		}
+	}
+
+	private Button lagLastFilKnapp() {
+		Button lastfil = new Button("Last fil");
+		EventHandler<ActionEvent> handler =
+			new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent evt) {
+					Sudoku.losSudoku();
+				}
+			};
+		lastfil.setOnAction(handler);
+		return lastfil;
 	}
 
 	private HBox lagNesteknapp() {

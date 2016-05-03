@@ -28,7 +28,7 @@ public class Rute {
  
 			if (neste == null) { //Siste rute
 				brett.leverTilBeholder();
-				brett.printLosning(); //TODO ALLE losninger
+				//brett.printLosning(); //TODO ALLE losninger
 			} else {
 				neste.fyllUtDenneRuteOgResten();
 			}
