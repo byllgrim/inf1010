@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.io.File;
 
 public class TestRute {
 	private static Brett brett;
@@ -6,7 +7,7 @@ public class TestRute {
 	public static void main(String[] args) {
 		try {
 			Filbehandler fb1 = new Filbehandler();
-			brett = fb1.lesFil("spill-1");
+			brett = fb1.lesFil(new File("spill-1"));
 
 			test1LosningRute00();
 			test1LosningRute41();
@@ -14,7 +15,7 @@ public class TestRute {
 			test1LosningRute52();
 
 			Filbehandler fb2 = new Filbehandler();
-			brett = fb2.lesFil("spill-2");
+			brett = fb2.lesFil(new File("spill-2"));
 
 			test2LosningRute00();
 			test2LosningRute58();

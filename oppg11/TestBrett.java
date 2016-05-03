@@ -1,10 +1,12 @@
+import java.io.File;
+
 public class TestBrett {
 	private static Brett brett;
 
 	public static void main(String[] args) {
 		try {
 			Filbehandler f1 = new Filbehandler();
-			brett = f1.lesFil("spill-1");
+			brett = f1.lesFil(new File("spill-1"));
 
 			testNesteRute();
 		} catch (Exception e) {

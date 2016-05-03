@@ -1,3 +1,4 @@
+import java.io.File;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -18,20 +19,18 @@ public class Sudoku extends Application {
 	public static void main(String[] args) {
 		try {
 			Filbehandler fb = new Filbehandler();
-			Brett b = fb.lesFil(args[0]);
+			//File f = new FileChooser().showOpenDialog(null);
+			//Brett b = fb.lesFil(f);
+			Brett b = fb.lesFil(new File("spill-0"));
 			b.printBrett();
 
 			sb = new SudokuBeholder(b);
 			b.losBrett(sb);
-			fb.skrivFil(sb, args[1]);
+			fb.skrivFil(sb, "losninger.txt");
 
 			launch();
-		} catch (IndexOutOfBoundsException e) {
-			System.out.println("usage: Sudoku spillfil løsningfil");
-			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
-			//TODO: Catch various exceptions
 		}
 	}
 

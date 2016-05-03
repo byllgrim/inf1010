@@ -1,10 +1,12 @@
+import java.io.File;
+
 public class TestBoks {
 	private static Brett brett;
 
 	public static void main(String[] args) {
 		try {
 			Filbehandler f1 = new Filbehandler();
-			brett = f1.lesFil("spill-1");
+			brett = f1.lesFil(new File("spill-1"));
 
 			test1BoksRute00();
 			test1BoksRute32();
@@ -12,7 +14,7 @@ public class TestBoks {
 			test1BoksRute35();
 
 			Filbehandler f2 = new Filbehandler();
-			brett = f2.lesFil("spill-2");
+			brett = f2.lesFil(new File("spill-2"));
 
 			test2BoksRute00();
 			test2BoksRute88();

@@ -8,13 +8,11 @@ public class Filbehandler {
 	private Scanner fs;
 	private PrintWriter utfil;
 
-	public Brett lesFil(String filnavn) throws RuntimeException,
+	public Brett lesFil(File f) throws RuntimeException,
 	                                           FileNotFoundException
 	                                           //TODO: consider custom
 	{
 		Brett b;
-
-		File f = new File(filnavn);
 		fs = new Scanner(f);
 		return lesBrett();
 	}
