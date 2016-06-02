@@ -5,8 +5,10 @@ public class Arbeider extends Thread {
 	private String tmp;
 	private int nr;
 
-	public Arbeider(int nr) { //trenger inbuf&utbuf
+	public Arbeider(int nr, OrdBuffer inbuf, OrdBuffer utbuf) {
 		this.nr = nr;
+		this.inbuf = inbuf;
+		this.utbuf = utbuf;
 	}
 
 	public void run() {
