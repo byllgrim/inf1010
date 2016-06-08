@@ -2,10 +2,11 @@ public class Tabell {
 	public static int[] fjernNuller(int[] langTab) {
 		int i, j, v, startNull, sluttNull;
 		boolean begynnelse = true;
-		int[] kortTab;
+		int[] kortTab = new int[langTab.length];
 
-		for (i = 0; i < langTab.size) {
-			v = lanTab[i];
+		startNull = sluttNull = 0;
+		for (i = 0; i < langTab.length; i++) {
+			v = langTab[i];
 			if (v != 0) {
 				sluttNull = 0;
 				if (begynnelse) begynnelse = false;
@@ -15,7 +16,7 @@ public class Tabell {
 			}
 		}
 
-		len = langTab.size - (startNull + sluttNull);
+		int len = langTab.length - (startNull + sluttNull);
 		for (i = startNull, j = 0; j < len; j++, i++)
 			kortTab[j] = langTab[i];
 
