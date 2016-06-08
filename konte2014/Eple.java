@@ -1,5 +1,5 @@
-public class Eple {
+public class Eple extends Frukt {
 	public Eple() {
-		this.sort = "eple";
+		sort = "eple";
 	}
 }

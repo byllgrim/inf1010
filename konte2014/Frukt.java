@@ -1,7 +1,12 @@
 public abstract class Frukt {
-	private String sort;
+	protected String sort;
 
 	public String id() {
 		return sort;
+	}
+
+	public boolean equals(Object o) {
+		return (o instanceof Frukt
+		        && sort.compareTo(((Frukt)o).id()) == 0);
 	}
 }
