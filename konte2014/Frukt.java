@@ -9,4 +9,8 @@ public abstract class Frukt {
 		return (o instanceof Frukt
 		        && sort.compareTo(((Frukt)o).id()) == 0);
 	}
+
+	public String toString() {
+		return sort;
+	}
 }

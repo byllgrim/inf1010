@@ -16,4 +16,9 @@ public class Student extends Person {
 		else
 			return super.equals(o);
 	}
+
+	public String toString() {
+		return "Student med navn " + navn
+		       + " og studentnummer " + Integer.toString(nr);
+	}
 }

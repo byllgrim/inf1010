@@ -13,4 +13,8 @@ public class Person {
 		return (o instanceof Person
 		        && navn.compareTo(((Person)o).id()) == 0);
 	}
+
+	public String toString() {
+		return "Person med navn " + navn;
+	}
 }
