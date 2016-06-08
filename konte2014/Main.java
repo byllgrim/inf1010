@@ -18,6 +18,7 @@ public class Main {
 		beholder.settInn(g1);
 		beholder.settInn(g2);
 		beholder.settInn(r);
+		/* her er tegning av datastruktur */
 
 		Object o = beholder.hent();
 		for (int i = 1; o != null; o = beholder.hent(), i++) {
