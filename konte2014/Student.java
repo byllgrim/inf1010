@@ -13,9 +13,7 @@ public class Student extends Person {
 	public boolean equals(Object o) {
 		if (o instanceof Student)
 		        return nr == ((Student)o).hentNr();
-		else if (o instanceof Person)
-			return navn.compareTo(((Person)o).id()) == 0;
 		else
-			return false;
+			return super.equals(o);
 	}
 }
